@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <meta name="description" content="neovim配置指南" />
+    <meta name="hexo-theme-A4" content="v2.0.0" />
+    <link rel="alternate icon" type="image/webp" href="/img/head.jpg">
+    <title>midreamsheep | 一个不断进步的小菜</title>
+
+    
+        
+<link rel="stylesheet" href="/css/highlight/style1.css">
+
+        
+<link rel="stylesheet" href="/css/reset.css">
+
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
+
+
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
+
+            
+<link rel="stylesheet" href="/css/unicons.css">
+
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
+
+        
+    
+
+    
+        
+<link rel="stylesheet" href="/css/returnToLastPage.css">
+
+    
+    
+   
+<link rel="stylesheet" href="/css/lightgallery-bundle.min.css">
+
+
+   
+        
+<link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Regular/result.css' /> 
+<meta name="generator" content="Hexo 7.3.0"></head>
+    
+    
+
+    
+    
+
+
+
+    
+
+    
+    
+
+
+
+
+    <style>
+        .archive-main a:hover {
+            text-decoration: none; 
+        }
+    </style>
+
+    
+    
+    <style>
+        body {
+            background-image: url(/img/background.png);
+            background-attachment: fixed;  /* 背景固定，不随页面滚动 */
+            background-repeat: no-repeat;  /* 防止背景图片重复 */
+            background-size: cover;       /* 背景自适应大小，覆盖整个背景 */
+            background-position: center;   /* 背景居中显示 */
+        }
+        .paper {
+            background-image: url(/img/background.png);
+            background-attachment: fixed;  /* 背景固定，不随页面滚动 */
+            background-repeat: no-repeat;  /* 防止背景图片重复 */
+            background-size: cover;       /* 背景自适应大小，覆盖整个背景 */
+            background-position: center;   /* 背景居中显示 */
+        }  
+    </style>
+
+
+
+    <body>
+        <script src="/js/darkmode-js.min.js"></script>
+        
+        <script>
+            const options = {
+                bottom: '40px', // default: '32px'
+                right: 'unset', // default: '32px'
+                left: '42px', // default: 'unset'
+                time: '0.3s', // default: '0.3s'
+                mixColor: '#fff', // default: '#fff'
+                backgroundColor: ' #e4e4e4 ',  // default: '#fff'
+                buttonColorDark: '#100f2c',  // default: '#100f2c'
+                buttonColorLight: '#fff', // default: '#fff'
+                saveInCookies: true, // default: true,
+                label: '🌓', // default: ''
+                autoMatchOsTheme: true // default: true
+            }
+            const darkmode = new Darkmode(options);
+            darkmode.showWidget();
+        </script>
+        
+        
+            
+                <div class="left-toc-container">
+                    <nav id="toc" class="bs-docs-sidebar"></nav>
+                </div>
+            
+        
+        <div class="paper">
+
+            
+
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+
+
+<div class="header">
+    <div class="header-container">
+        <style>
+            .header-img {
+                width: 56px;
+                height: auto;
+                object-fit: cover; /* 保持图片比例 */
+                transition: transform 0.3s ease-in-out; 
+                border-radius: 50%; 
+            }
+            
+        </style>
+        <img 
+            alt="^-^" 
+            cache-control="max-age=86400" 
+            class="header-img" 
+            src="/img/head.jpg" 
+        />
+        <div class="header-content">
+            <a class="logo" href="/">midreamsheep</a> 
+            <span class="description">一个小菜</span> 
+        </div>
+    </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+            
+                <li><a href="/about/">关于</a></li>
+            
+        
+            
+                <li><a href="/tags/">标签</a></li>
+            
+        
+            
+                <li><a href="/categories/">分类</a></li>
+            
+        
+    </ul>
+</div>
+
+                    
+                    
+
+                    
+                    
+
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+    
+
+    
+        
+            
+                <div class="post-main-title" style="text-align: center;">
+                    neovim配置指南
+                </div>
+            
+        
+      
+    
+
+    
+
+        
+            <div class="post-head-meta-center">
+        
+                
+                    <span>最近更新：2025-09-15</span> 
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                     <span>字数总计：1.1k</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span>阅读估时：4分钟</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span id="busuanzi_container_page_pv">
+                        阅读量：<span id="busuanzi_value_page_pv"></span>次
+                    </span>
+                
+            </div>
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#neovim%E4%BB%8B%E7%BB%8D"><span class="post-toc-text">neovim介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#neovim%E5%AE%89%E8%A3%85"><span class="post-toc-text">neovim安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#linux%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85"><span class="post-toc-text">linux下的安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%80%9A%E8%BF%87%E4%B8%AD%E5%BF%83%E5%BA%93%E5%AE%89%E8%A3%85"><span class="post-toc-text">通过中心库安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%80%9A%E8%BF%87%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91"><span class="post-toc-text">通过源码编译</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#windows%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85"><span class="post-toc-text">windows下的安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#macos%E5%AE%89%E8%A3%85"><span class="post-toc-text">macos安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#neovim%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="post-toc-text">neovim的基本使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#neovim%E7%9A%84%E6%A8%A1%E5%BC%8F"><span class="post-toc-text">neovim的模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F"><span class="post-toc-text">命令模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BF%AE%E6%94%B9%E5%85%89%E6%A0%87%E4%BD%8D%E7%BD%AE"><span class="post-toc-text">修改光标位置</span></a></li></ol></li></ol></li></ol>
+            
+        
+        <div class=".article-gallery"><h1 id="neovim介绍"><a href="#neovim介绍" class="headerlink" title="neovim介绍"></a>neovim介绍</h1><p>Neovim is a project that seeks to aggressively refactor <a target="_blank" rel="noopener" href="https://www.vim.org/">Vim</a> in order to:</p>
+<ul>
+<li>Simplify maintenance and encourage <a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/blob/master/CONTRIBUTING.md">contributions</a></li>
+<li>Split the work between multiple developers</li>
+<li>Enable <a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/wiki/Related-projects#gui">advanced UIs</a> without modifications to the core</li>
+<li>Maximize <a target="_blank" rel="noopener" href="https://neovim.io/doc/user/ui.html">extensibility</a></li>
+</ul>
+<p>See the <a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/wiki/Introduction">Introduction</a> wiki page and <a target="_blank" rel="noopener" href="https://neovim.io/roadmap/">Roadmap</a> for more information.</p>
+<p>Neovim 是一个旨在对 <a target="_blank" rel="noopener" href="https://www.vim.org/">Vim</a> 进行激进重构的项目，其目的是：</p>
+<ul>
+<li>简化维护工作并鼓励<a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/blob/master/CONTRIBUTING.md">贡献</a></li>
+<li>在多个开发者之间分配工作</li>
+<li>无需修改核心即可启用<a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/wiki/Related-projects#gui">高级用户界面</a></li>
+<li>最大限度地提高<a target="_blank" rel="noopener" href="https://neovim.io/doc/user/ui.html">可扩展性</a></li>
+</ul>
+<p>请参阅 <a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/wiki/Introduction">介绍</a> 维基页面和 <a target="_blank" rel="noopener" href="https://neovim.io/roadmap/">路线图</a> 以获取更多信息。</p>
+<blockquote>
+<p>摘自官方</p>
+</blockquote>
+<h1 id="neovim安装"><a href="#neovim安装" class="headerlink" title="neovim安装"></a>neovim安装</h1><h2 id="linux下的安装"><a href="#linux下的安装" class="headerlink" title="linux下的安装"></a>linux下的安装</h2><h3 id="通过中心库安装"><a href="#通过中心库安装" class="headerlink" title="通过中心库安装"></a>通过中心库安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ &#123;特定发行版的包管理器下载命令&#125; neovim</span><br></pre></td></tr></table></figure>
+
+<h3 id="通过源码编译"><a href="#通过源码编译" class="headerlink" title="通过源码编译"></a>通过源码编译</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/neovim/neovim</span><br><span class="line">$ <span class="built_in">cd</span> neovim &amp;&amp; git checkout stable</span><br><span class="line">$ make CMAKE_BUILD_TYPE=RelWithDebInfo &amp;&amp; <span class="built_in">sudo</span> make install</span><br><span class="line">$ <span class="built_in">cd</span> .. &amp;&amp; <span class="built_in">rm</span> -rf neovim</span><br></pre></td></tr></table></figure>
+
+<h2 id="windows下的安装"><a href="#windows下的安装" class="headerlink" title="windows下的安装"></a>windows下的安装</h2><ol>
+<li>打开链接<a target="_blank" rel="noopener" href="https://github.com/neovim/neovim">neovim</a></li>
+<li>点击侧边栏的releases</li>
+<li>下载对应windows的版本nvim-win64.msi</li>
+<li>下载完后点击安装并傻瓜式next</li>
+</ol>
+<h2 id="macos安装"><a href="#macos安装" class="headerlink" title="macos安装"></a>macos安装</h2><p>同windows</p>
+<h1 id="neovim的基本使用"><a href="#neovim的基本使用" class="headerlink" title="neovim的基本使用"></a>neovim的基本使用</h1><h2 id="neovim的模式"><a href="#neovim的模式" class="headerlink" title="neovim的模式"></a>neovim的模式</h2><ul>
+<li><strong>命令模式</strong>（Normal Mode）：用于导航、编辑和执行命令（也称<strong>一般模式</strong>）。</li>
+<li><strong>插入模式</strong>（Insert Mode）：用于输入和编辑文本（也称<strong>编辑模式</strong>）。</li>
+<li><strong>可视模式</strong>（Visual Mode）：用于选择和操作文本块（也称<strong>底行模式</strong>）。</li>
+</ul>
+<p><a href="/images/nvim_mode.png" title="nvim_mode" class="gallery-item" style="box-shadow: none;"> <img src="/images/nvim_mode.png" alt="nvim_mode"></a></p>
+<h2 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h2><p>用nvim打开文件默认进入时的模式</p>
+<h3 id="修改光标位置"><a href="#修改光标位置" class="headerlink" title="修改光标位置"></a>修改光标位置</h3><p>常用快捷键：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"># 基本移动</span><br><span class="line">hjkl：左、下、上、右（推荐直接使用方向键）</span><br><span class="line">&#123;number&#125;方向键：多次调整</span><br><span class="line"></span><br><span class="line"># 快速翻页</span><br><span class="line">ctrl b：向上移动一页（pageup）；</span><br><span class="line">ctrl f：向下移动一页（pagedown）；</span><br><span class="line"></span><br><span class="line"># 文件级移动</span><br><span class="line">gg：移动到文件第一行；</span><br><span class="line">G：移到文件最后一行；</span><br><span class="line"></span><br><span class="line"># 屏幕级移动</span><br><span class="line">H	High	移动到屏幕顶部的第一行</span><br><span class="line">M	Middle	移动到屏幕中间的行</span><br><span class="line">L	Low	移动到屏幕底部的最后一行</span><br><span class="line">gg	Go to	移动到文件第一行</span><br><span class="line">G	Go to	移动到文件最后一行</span><br><span class="line">:&#123;number&#125;	移动到第 &#123;number&#125; 行，例如 :42 跳到第 42 行</span><br><span class="line">&#123;number&#125;G	（推荐）移动到第 &#123;number&#125; 行，例如 42G 跳到第 42 行</span><br><span class="line">Ctrl + f	Forward	向下翻一页（Page Down）</span><br><span class="line">Ctrl + b	Backward	向上翻一页（Page Up）</span><br><span class="line">Ctrl + d	Down	向下翻半页</span><br><span class="line">Ctrl + u	Up	向上翻半页</span><br><span class="line">zz		将当前行置于屏幕中央</span><br><span class="line">zt	Top	将当前行置于屏幕顶部</span><br><span class="line">zb	Bottom	将当前行置于屏幕底部</span><br><span class="line"></span><br><span class="line"># 行内单词级移动</span><br><span class="line">w	Word	移动到下一个单词的开头（标点符号视为单独单词）</span><br><span class="line">W	WORD (大词)	移动到下一个空白分隔的大词的开头（忽略标点）</span><br><span class="line">e	End of word	移动到当前单词/下一个单词的末尾</span><br><span class="line">E	End of WORD	移动到当前大词/下一个大词的末尾</span><br><span class="line">b	Back	向后/向左移动到上一个单词的开头</span><br><span class="line">B	Back (大词)	向后/向左移动到上一个大词的开头</span><br><span class="line">ge	Go to end	移动到上一个单词的末尾</span><br><span class="line"></span><br><span class="line"># 行内移动</span><br><span class="line">0	(数字零)	移动到行首（第一个字符）</span><br><span class="line">^	Caret	移动到本行第一个非空白字符</span><br><span class="line">$	Dollar sign	移动到行尾</span><br><span class="line">g_		移动到行尾最后一个非空白字符</span><br><span class="line"></span><br><span class="line"># 基于搜索的跳转</span><br><span class="line">f&#123;char&#125;	Find	向右查找并移动到字符 &#123;char&#125; 上</span><br><span class="line">F&#123;char&#125;	Find (反向)	向左查找并移动到字符 &#123;char&#125; 上</span><br><span class="line">t&#123;char&#125;	Till	向右查找并移动到字符 &#123;char&#125; 之前</span><br><span class="line">T&#123;char&#125;	Till (反向)	向左查找并移动到字符 &#123;char&#125; 之前</span><br><span class="line">;		重复上一次 f, F, t, T 的查找</span><br><span class="line">,		反向重复上一次查找</span><br><span class="line">/&#123;pattern&#125;&lt;CR&gt;		向下搜索 &#123;pattern&#125;，光标跳到第一个匹配处</span><br><span class="line">?&#123;pattern&#125;&lt;CR&gt;		向上搜索 &#123;pattern&#125;，光标跳到第一个匹配处</span><br><span class="line">n	Next	跳到下一个匹配项（保持搜索方向）</span><br><span class="line">N		跳到上一个匹配项（反向搜索方向）</span><br><span class="line">*		向后搜索光标当前所在的单词</span><br><span class="line">#		向前搜索光标当前所在的单词</span><br><span class="line">g*		同 *，但搜索部分匹配的单词</span><br><span class="line">g#		同 #，但搜索部分匹配的单词</span><br><span class="line">%	(配对符号)	在配对的括号 (), &#123;&#125;, [] 之间跳转</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</div>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2025-09-15</span>
+            
+                <span>该篇文章被 midreamsheep</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/nvim/'>
+                            nvim
+                        </a>
+                    
+                        <a href='/tags/%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/'>
+                            配置指南
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/'>
+                            开发工具
+                        </a>
+                    
+                </span>
+            
+        
+        </i>
+    </div>
+    <br>
+    
+    
+        
+            
+    
+            <div class="post-footer-pre-next">
+                
+
+                
+                    <span class="post-footer-pre-next-last-span-right">下一篇：<a href="/2025/09/04/program/go/go%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">go的基本语法</a>
+                    </span>
+                
+            </div>
+    
+        
+    
+
+    
+        
+
+     
+</div>
+
+
+
+
+                    
+
+                    <div class="footer">
+    
+        <span> 
+            © 1949-2025 China 
+
+            
+                
+
+            
+        </span>
+       
+    
+</div>
+
+
+
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>🌊看过大海的人不会忘记海的广阔🌊</span>
+            
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
+            
+    
+</div>
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
+    
+
+    
+<script src="/js/randomHeaderContent.js"></script>
+
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
+
+    
+
+    
+        
+<script src="/js/returnToLastPage.js"></script>
+
+    
+
+
+
+
+
+<script src="/js/lightgallery/lightgallery.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-thumbnail.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-fullscreen.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-autoplay.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-zoom.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-rotate.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-paper.umd.min.js"></script>
+
+
+
+
+<script type="text/javascript">
+     
+    if (typeof lightGallery !== "undefined") {
+        var options1 = {
+            selector: '.gallery-item',
+            plugins: [lgThumbnail, lgFullscreen, lgAutoplay, lgZoom, lgRotate, lgPager], // 启用插件
+            thumbnail: true,          // 显示缩略图
+            zoom: true,               // 启用缩放功
+            rotate: true,             // 启用旋转功能能
+            autoplay: true,        // 启用自动播放功能
+            fullScreen: true,      // 启用全屏功能
+            pager: false, //页码,
+            zoomFromOrigin: true,   // 从原始位置缩放
+            actualSize: true,       // 启用查看实际大小的功能
+            enableZoomAfter: 300,    // 延迟缩放，确保图片加载完成后可缩放
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1); // 修复选择器
+    }
+    
+</script>
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
+
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+            
+                <!-- 返回的按钮-->
+                <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+    </body>
+</html>
+<script src="/js/emojiHandler.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        wrapEmojis('.paper');
+    });
+</script>
