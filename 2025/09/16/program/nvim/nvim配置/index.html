@@ -230,7 +230,7 @@
                     
                         &nbsp; | &nbsp;
                     
-                     <span>字数总计：2.5k</span>
+                     <span>字数总计：2.4k</span>
                 
                 
                     
@@ -252,828 +252,951 @@
     <div class="post-md">
         
             
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#nvim%E9%85%8D%E7%BD%AE%E4%BB%8B%E7%BB%8D"><span class="post-toc-text">nvim配置介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%80%89%E9%A1%B9%E8%AE%BE%E7%BD%AE-vim-opt"><span class="post-toc-text">选项设置 vim.opt</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%93%8B-%E6%98%BE%E7%A4%BA%E4%B8%8E%E7%95%8C%E9%9D%A2-Display-UI"><span class="post-toc-text">📋 显示与界面 (Display &amp; UI)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E2%8C%A8%EF%B8%8F-%E7%BC%96%E8%BE%91%E8%A1%8C%E4%B8%BA-Editing-Behavior"><span class="post-toc-text">⌨️ 编辑行为 (Editing Behavior)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%93%9D-%E7%BC%A9%E8%BF%9B%E4%B8%8E%E5%88%B6%E8%A1%A8%E7%AC%A6-Indentation-Tabs"><span class="post-toc-text">📝 缩进与制表符 (Indentation &amp; Tabs)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%94%8D-%E6%90%9C%E7%B4%A2%E4%B8%8E%E6%9B%BF%E6%8D%A2-Search-Replace"><span class="post-toc-text">🔍 搜索与替换 (Search &amp; Replace)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%93%84-%E6%96%87%E6%9C%AC%E6%98%BE%E7%A4%BA-Text-Display"><span class="post-toc-text">📄 文本显示 (Text Display)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E2%9A%A1-%E6%80%A7%E8%83%BD%E7%9B%B8%E5%85%B3-Performance"><span class="post-toc-text">⚡ 性能相关 (Performance)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%8E%A8-%E9%A2%9C%E8%89%B2%E4%B8%8E%E8%AF%AD%E6%B3%95-Colors-Syntax"><span class="post-toc-text">🎨 颜色与语法 (Colors &amp; Syntax)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%8C%90-%E6%96%87%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A0%81-Files-Encoding"><span class="post-toc-text">🌐 文件与编码 (Files &amp; Encoding)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%94%A7-%E9%AB%98%E7%BA%A7%E9%80%89%E9%A1%B9-Advanced-Options"><span class="post-toc-text">🔧 高级选项 (Advanced Options)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%8E%AF-%E5%AE%8C%E6%95%B4%E9%85%8D%E7%BD%AE%E7%A4%BA%E4%BE%8B"><span class="post-toc-text">🎯 完整配置示例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%8C%89%E9%94%AE%E6%98%A0%E5%B0%84-vim-keymap"><span class="post-toc-text">按键映射 vim.keymap</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%8E%AF-%E6%A8%A1%E5%BC%8F-Modes"><span class="post-toc-text">🎯 模式 (Modes)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%94%A7-%E9%80%89%E9%A1%B9%E5%8F%82%E6%95%B0-opts"><span class="post-toc-text">🔧 选项参数 ({opts})</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9"><span class="post-toc-text">常用选项</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%89%B9%E6%AE%8A%E9%80%89%E9%A1%B9"><span class="post-toc-text">特殊选项</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%8E%AA-%E6%98%A0%E5%B0%84%E5%8F%B3%E4%BE%A7-rhs-%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="post-toc-text">🎪 映射右侧 ({rhs}) 的类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%91%BD%E4%BB%A4%EF%BC%88%E6%9C%80%E5%B8%B8%E8%A7%81%EF%BC%89"><span class="post-toc-text">1. 字符串命令（最常见）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-Lua-%E5%87%BD%E6%95%B0%EF%BC%88%E6%9B%B4%E5%BC%BA%E5%A4%A7%EF%BC%89"><span class="post-toc-text">2. Lua 函数（更强大）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95%EF%BC%89"><span class="post-toc-text">3. 表达式（高级用法）</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%98%A0%E5%B0%84%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%AE%9A%E4%B9%89"><span class="post-toc-text">映射快捷键定义</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%8E%AF-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%EF%BC%9ALeader-%E9%94%AE"><span class="post-toc-text">🎯 核心概念：Leader 键</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Leader-%E9%94%AE%EF%BC%9F"><span class="post-toc-text">什么是 Leader 键？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE-Leader-%E9%94%AE%EF%BC%9F"><span class="post-toc-text">如何设置 Leader 键？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8-Leader-%E9%94%AE%EF%BC%9F"><span class="post-toc-text">为什么使用 Leader 键？</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%93%8B-%E7%89%B9%E6%AE%8A%E9%94%AE%E8%A1%A8%E7%A4%BA%E6%B3%95%E5%A4%A7%E5%85%A8"><span class="post-toc-text">📋 特殊键表示法大全</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E4%BF%AE%E9%A5%B0%E9%94%AE-Modifier-Keys"><span class="post-toc-text">1. 修饰键 (Modifier Keys)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E5%8A%9F%E8%83%BD%E9%94%AE-Function-Keys"><span class="post-toc-text">2. 功能键 (Function Keys)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E9%94%AE"><span class="post-toc-text">3. 特殊字符键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E7%BB%84%E5%90%88%E9%94%AE%E8%A1%A8%E7%A4%BA"><span class="post-toc-text">4. 组合键表示</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-%E7%89%B9%E6%AE%8A%E6%A0%87%E8%AF%86"><span class="post-toc-text">5.特殊标识</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE%EF%BC%88%E6%9A%82%E6%97%A0%EF%BC%8C%E5%B9%B6%E4%B8%8D%E5%B8%B8%E7%94%A8%EF%BC%89"><span class="post-toc-text">其他配置（暂无，并不常用）</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#nvim%E9%85%8D%E7%BD%AE%E4%BB%8B%E7%BB%8D"><span class="post-toc-text">nvim配置介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%80%89%E9%A1%B9%E8%AE%BE%E7%BD%AE-vim.opt"><span class="post-toc-text">选项设置 vim.opt</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%98%BE%E7%A4%BA%E4%B8%8E%E7%95%8C%E9%9D%A2-display-ui"><span class="post-toc-text">📋 显示与界面 (Display &amp; UI)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BC%96%E8%BE%91%E8%A1%8C%E4%B8%BA-editing-behavior"><span class="post-toc-text">⌨️ 编辑行为 (Editing Behavior)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BC%A9%E8%BF%9B%E4%B8%8E%E5%88%B6%E8%A1%A8%E7%AC%A6-indentation-tabs"><span class="post-toc-text">📝 缩进与制表符 (Indentation
+&amp; Tabs)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%90%9C%E7%B4%A2%E4%B8%8E%E6%9B%BF%E6%8D%A2-search-replace"><span class="post-toc-text">🔍 搜索与替换 (Search &amp;
+Replace)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%87%E6%9C%AC%E6%98%BE%E7%A4%BA-text-display"><span class="post-toc-text">📄 文本显示 (Text Display)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%A7%E8%83%BD%E7%9B%B8%E5%85%B3-performance"><span class="post-toc-text">⚡ 性能相关 (Performance)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A2%9C%E8%89%B2%E4%B8%8E%E8%AF%AD%E6%B3%95-colors-syntax"><span class="post-toc-text">🎨 颜色与语法 (Colors &amp;
+Syntax)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A0%81-files-encoding"><span class="post-toc-text">🌐 文件与编码 (Files &amp;
+Encoding)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%AB%98%E7%BA%A7%E9%80%89%E9%A1%B9-advanced-options"><span class="post-toc-text">🔧 高级选项 (Advanced Options)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%8C%E6%95%B4%E9%85%8D%E7%BD%AE%E7%A4%BA%E4%BE%8B"><span class="post-toc-text">🎯 完整配置示例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%8C%89%E9%94%AE%E6%98%A0%E5%B0%84-vim.keymap"><span class="post-toc-text">按键映射 vim.keymap</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A8%A1%E5%BC%8F-modes"><span class="post-toc-text">🎯 模式 (Modes)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%80%89%E9%A1%B9%E5%8F%82%E6%95%B0-opts"><span class="post-toc-text">🔧 选项参数 ({opts})</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9"><span class="post-toc-text">常用选项</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%89%B9%E6%AE%8A%E9%80%89%E9%A1%B9"><span class="post-toc-text">特殊选项</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%98%A0%E5%B0%84%E5%8F%B3%E4%BE%A7-rhs-%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="post-toc-text">🎪 映射右侧 ({rhs})
+的类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%91%BD%E4%BB%A4%E6%9C%80%E5%B8%B8%E8%A7%81"><span class="post-toc-text">1. 字符串命令（最常见）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#lua-%E5%87%BD%E6%95%B0%E6%9B%B4%E5%BC%BA%E5%A4%A7"><span class="post-toc-text">2. Lua 函数（更强大）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95"><span class="post-toc-text">3. 表达式（高级用法）</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%98%A0%E5%B0%84%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%AE%9A%E4%B9%89"><span class="post-toc-text">映射快捷键定义</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5leader-%E9%94%AE"><span class="post-toc-text">🎯 核心概念：Leader 键</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-leader-%E9%94%AE"><span class="post-toc-text">什么是 Leader 键？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE-leader-%E9%94%AE"><span class="post-toc-text">如何设置 Leader 键？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8-leader-%E9%94%AE"><span class="post-toc-text">为什么使用 Leader 键？</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%89%B9%E6%AE%8A%E9%94%AE%E8%A1%A8%E7%A4%BA%E6%B3%95%E5%A4%A7%E5%85%A8"><span class="post-toc-text">📋 特殊键表示法大全</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BF%AE%E9%A5%B0%E9%94%AE-modifier-keys"><span class="post-toc-text">1. 修饰键 (Modifier Keys)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8A%9F%E8%83%BD%E9%94%AE-function-keys"><span class="post-toc-text">2. 功能键 (Function Keys)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E9%94%AE"><span class="post-toc-text">3. 特殊字符键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BB%84%E5%90%88%E9%94%AE%E8%A1%A8%E7%A4%BA"><span class="post-toc-text">4. 组合键表示</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%89%B9%E6%AE%8A%E6%A0%87%E8%AF%86"><span class="post-toc-text">5.特殊标识</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE%E6%9A%82%E6%97%A0%E5%B9%B6%E4%B8%8D%E5%B8%B8%E7%94%A8"><span class="post-toc-text">其他配置（暂无，并不常用）</span></a></li></ol>
             
         
-        <div class=".article-gallery"><h1 id="nvim配置介绍"><a href="#nvim配置介绍" class="headerlink" title="nvim配置介绍"></a>nvim配置介绍</h1><p>neovim的配置通过lua来进行配置，具有超高的灵活性</p>
+        <div class=".article-gallery"><h1 id="nvim配置介绍">nvim配置介绍</h1>
+<p>neovim的配置通过lua来进行配置，具有超高的灵活性</p>
 <p>请找到对应系统的配置目录</p>
-<ol>
+<ol type="1">
 <li>linux: <code>~/.config/nvim</code></li>
 <li>windows: <code>C:\Users\用户名\AppData\Local\nvim</code></li>
 <li>macos: <code>善用搜索</code></li>
 </ol>
 <p>然后建立如下的文件结构</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- init.lua</span><br><span class="line">- lua</span><br><span class="line">  - plugins</span><br><span class="line">  - keymaps.lua</span><br><span class="line">  - options.lua</span><br></pre></td></tr></table></figure>
-
 <p>其中在init.lua为默认配置的启动lua脚本，需在其中引用lua下的lua</p>
 <p>例如在init.lua中写入:</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&quot;keymaps&quot;</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&quot;options&quot;</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&quot;plugins.文件名&quot;</span>)</span><br></pre></td></tr></table></figure>
-
 <p>然后配置就能生效了</p>
 <blockquote>
 <p>不需要带上lua文件夹名或者.lua后缀</p>
 </blockquote>
-<h1 id="选项设置-vim-opt"><a href="#选项设置-vim-opt" class="headerlink" title="选项设置 vim.opt"></a>选项设置 vim.opt</h1><p><strong>用途</strong>：控制 Neovim 的外观和行为基础设置。</p>
+<h1 id="选项设置-vim.opt">选项设置 vim.opt</h1>
+<p><strong>用途</strong>：控制 Neovim 的外观和行为基础设置。</p>
 <blockquote>
-<p>要查看所有可用选项，可以在 Neovim 中运行 <code>:help option-list</code> 或 <code>:options</code> 命令。</p>
+<p>要查看所有可用选项，可以在 Neovim 中运行
+<code>:help option-list</code> 或 <code>:options</code> 命令。</p>
 </blockquote>
-<h2 id="📋-显示与界面-Display-UI"><a href="#📋-显示与界面-Display-UI" class="headerlink" title="📋 显示与界面 (Display &amp; UI)"></a>📋 显示与界面 (Display &amp; UI)</h2><table>
+<h2 id="显示与界面-display-ui">📋 显示与界面 (Display &amp; UI)</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 8%" />
+<col style="width: 9%" />
+<col style="width: 63%" />
+</colgroup>
 <thead>
 <tr>
-<th align="left">选项</th>
-<th align="left">类型</th>
-<th align="left">默认值</th>
-<th align="left">描述</th>
+<th style="text-align: left;">选项</th>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">默认值</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><code>number</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">显示行号</td>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">显示行号</td>
 </tr>
 <tr>
-<td align="left"><code>relativenumber</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">显示相对行号</td>
+<td style="text-align: left;"><code>relativenumber</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">显示相对行号</td>
 </tr>
 <tr>
-<td align="left"><code>cursorline</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">高亮当前行</td>
+<td style="text-align: left;"><code>cursorline</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">高亮当前行</td>
 </tr>
 <tr>
-<td align="left"><code>cursorcolumn</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">高亮当前列</td>
+<td style="text-align: left;"><code>cursorcolumn</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">高亮当前列</td>
 </tr>
 <tr>
-<td align="left"><code>signcolumn</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;auto&quot;</code></td>
-<td align="left">标记列显示方式 (<code>&quot;yes&quot;</code>, <code>&quot;no&quot;</code>, <code>&quot;auto&quot;</code>, <code>&quot;number&quot;</code>)</td>
+<td style="text-align: left;"><code>signcolumn</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>"auto"</code></td>
+<td style="text-align: left;">标记列显示方式 (<code>"yes"</code>,
+<code>"no"</code>, <code>"auto"</code>, <code>"number"</code>)</td>
 </tr>
 <tr>
-<td align="left"><code>showmode</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>true</code></td>
-<td align="left">显示当前模式</td>
+<td style="text-align: left;"><code>showmode</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>true</code></td>
+<td style="text-align: left;">显示当前模式</td>
 </tr>
 <tr>
-<td align="left"><code>showcmd</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>true</code></td>
-<td align="left">显示未完成的命令</td>
+<td style="text-align: left;"><code>showcmd</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>true</code></td>
+<td style="text-align: left;">显示未完成的命令</td>
 </tr>
 <tr>
-<td align="left"><code>ruler</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>true</code></td>
-<td align="left">显示光标位置</td>
+<td style="text-align: left;"><code>ruler</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>true</code></td>
+<td style="text-align: left;">显示光标位置</td>
 </tr>
 <tr>
-<td align="left"><code>laststatus</code></td>
-<td align="left">number</td>
-<td align="left"><code>1</code></td>
-<td align="left">状态行显示 (<code>0</code>-不显示, <code>1</code>-多窗口时, <code>2</code>-总是)</td>
+<td style="text-align: left;"><code>laststatus</code></td>
+<td style="text-align: left;">number</td>
+<td style="text-align: left;"><code>1</code></td>
+<td style="text-align: left;">状态行显示 (<code>0</code>-不显示,
+<code>1</code>-多窗口时, <code>2</code>-总是)</td>
 </tr>
 <tr>
-<td align="left"><code>statusline</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;&quot;</code></td>
-<td align="left">状态行格式</td>
+<td style="text-align: left;"><code>statusline</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>""</code></td>
+<td style="text-align: left;">状态行格式</td>
 </tr>
 <tr>
-<td align="left"><code>title</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">设置终端标题</td>
+<td style="text-align: left;"><code>title</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">设置终端标题</td>
 </tr>
 <tr>
-<td align="left"><code>wrap</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>true</code></td>
-<td align="left">自动换行</td>
+<td style="text-align: left;"><code>wrap</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>true</code></td>
+<td style="text-align: left;">自动换行</td>
 </tr>
 <tr>
-<td align="left"><code>linebreak</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">在单词边界换行</td>
+<td style="text-align: left;"><code>linebreak</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">在单词边界换行</td>
 </tr>
 <tr>
-<td align="left"><code>showbreak</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;&quot;</code></td>
-<td align="left">换行行首显示字符</td>
+<td style="text-align: left;"><code>showbreak</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>""</code></td>
+<td style="text-align: left;">换行行首显示字符</td>
 </tr>
 <tr>
-<td align="left"><code>list</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">显示不可见字符</td>
+<td style="text-align: left;"><code>list</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">显示不可见字符</td>
 </tr>
 <tr>
-<td align="left"><code>listchars</code></td>
-<td align="left">table</td>
-<td align="left"><code>&#123;&#125;</code></td>
-<td align="left">不可见字符的显示方式</td>
+<td style="text-align: left;"><code>listchars</code></td>
+<td style="text-align: left;">table</td>
+<td style="text-align: left;"><code>&#123;&#125;</code></td>
+<td style="text-align: left;">不可见字符的显示方式</td>
 </tr>
-</tbody></table>
-<hr>
-<h2 id="⌨️-编辑行为-Editing-Behavior"><a href="#⌨️-编辑行为-Editing-Behavior" class="headerlink" title="⌨️ 编辑行为 (Editing Behavior)"></a>⌨️ 编辑行为 (Editing Behavior)</h2><table>
+</tbody>
+</table>
+<hr />
+<h2 id="编辑行为-editing-behavior">⌨️ 编辑行为 (Editing Behavior)</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 61%" />
+</colgroup>
 <thead>
 <tr>
-<th align="left">选项</th>
-<th align="left">类型</th>
-<th align="left">默认值</th>
-<th align="left">描述</th>
+<th style="text-align: left;">选项</th>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">默认值</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><code>mouse</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;&quot;</code></td>
-<td align="left">鼠标支持 (<code>&quot;a&quot;</code>-所有模式, <code>&quot;n&quot;</code>-普通模式等)</td>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>mouse</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>""</code></td>
+<td style="text-align: left;">鼠标支持 (<code>"a"</code>-所有模式,
+<code>"n"</code>-普通模式等)</td>
 </tr>
 <tr>
-<td align="left"><code>clipboard</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;&quot;</code></td>
-<td align="left">剪贴板集成 (<code>&quot;unnamed&quot;</code>, <code>&quot;unnamedplus&quot;</code>)</td>
+<td style="text-align: left;"><code>clipboard</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>""</code></td>
+<td style="text-align: left;">剪贴板集成 (<code>"unnamed"</code>,
+<code>"unnamedplus"</code>)</td>
 </tr>
 <tr>
-<td align="left"><code>undofile</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">持久化撤销历史</td>
+<td style="text-align: left;"><code>undofile</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">持久化撤销历史</td>
 </tr>
 <tr>
-<td align="left"><code>swapfile</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>true</code></td>
-<td align="left">创建交换文件</td>
+<td style="text-align: left;"><code>swapfile</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>true</code></td>
+<td style="text-align: left;">创建交换文件</td>
 </tr>
 <tr>
-<td align="left"><code>backup</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>true</code></td>
-<td align="left">创建备份文件</td>
+<td style="text-align: left;"><code>backup</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>true</code></td>
+<td style="text-align: left;">创建备份文件</td>
 </tr>
 <tr>
-<td align="left"><code>writebackup</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>true</code></td>
-<td align="left">写入时创建备份</td>
+<td style="text-align: left;"><code>writebackup</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>true</code></td>
+<td style="text-align: left;">写入时创建备份</td>
 </tr>
 <tr>
-<td align="left"><code>autoread</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">文件外部修改时自动重读</td>
+<td style="text-align: left;"><code>autoread</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">文件外部修改时自动重读</td>
 </tr>
 <tr>
-<td align="left"><code>autowrite</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">自动写入</td>
+<td style="text-align: left;"><code>autowrite</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">自动写入</td>
 </tr>
 <tr>
-<td align="left"><code>hidden</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">允许隐藏缓冲区</td>
+<td style="text-align: left;"><code>hidden</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">允许隐藏缓冲区</td>
 </tr>
 <tr>
-<td align="left"><code>confirm</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">操作前确认</td>
+<td style="text-align: left;"><code>confirm</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">操作前确认</td>
 </tr>
-</tbody></table>
-<hr>
-<h2 id="📝-缩进与制表符-Indentation-Tabs"><a href="#📝-缩进与制表符-Indentation-Tabs" class="headerlink" title="📝 缩进与制表符 (Indentation &amp; Tabs)"></a>📝 缩进与制表符 (Indentation &amp; Tabs)</h2><table>
+</tbody>
+</table>
+<hr />
+<h2 id="缩进与制表符-indentation-tabs">📝 缩进与制表符 (Indentation
+&amp; Tabs)</h2>
+<table>
 <thead>
 <tr>
-<th align="left">选项</th>
-<th align="left">类型</th>
-<th align="left">默认值</th>
-<th align="left">描述</th>
+<th style="text-align: left;">选项</th>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">默认值</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><code>tabstop</code></td>
-<td align="left">number</td>
-<td align="left"><code>8</code></td>
-<td align="left">Tab 字符的显示宽度</td>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>tabstop</code></td>
+<td style="text-align: left;">number</td>
+<td style="text-align: left;"><code>8</code></td>
+<td style="text-align: left;">Tab 字符的显示宽度</td>
 </tr>
 <tr>
-<td align="left"><code>shiftwidth</code></td>
-<td align="left">number</td>
-<td align="left"><code>8</code></td>
-<td align="left">自动缩进的空格数</td>
+<td style="text-align: left;"><code>shiftwidth</code></td>
+<td style="text-align: left;">number</td>
+<td style="text-align: left;"><code>8</code></td>
+<td style="text-align: left;">自动缩进的空格数</td>
 </tr>
 <tr>
-<td align="left"><code>expandtab</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">将 Tab 转换为空格</td>
+<td style="text-align: left;"><code>expandtab</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">将 Tab 转换为空格</td>
 </tr>
 <tr>
-<td align="left"><code>smarttab</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">智能 Tab 处理</td>
+<td style="text-align: left;"><code>smarttab</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">智能 Tab 处理</td>
 </tr>
 <tr>
-<td align="left"><code>autoindent</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>true</code></td>
-<td align="left">自动缩进</td>
+<td style="text-align: left;"><code>autoindent</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>true</code></td>
+<td style="text-align: left;">自动缩进</td>
 </tr>
 <tr>
-<td align="left"><code>smartindent</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">智能缩进</td>
+<td style="text-align: left;"><code>smartindent</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">智能缩进</td>
 </tr>
 <tr>
-<td align="left"><code>cindent</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">C 风格缩进</td>
+<td style="text-align: left;"><code>cindent</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">C 风格缩进</td>
 </tr>
 <tr>
-<td align="left"><code>softtabstop</code></td>
-<td align="left">number</td>
-<td align="left"><code>0</code></td>
-<td align="left">编辑时 Tab 的空格数</td>
+<td style="text-align: left;"><code>softtabstop</code></td>
+<td style="text-align: left;">number</td>
+<td style="text-align: left;"><code>0</code></td>
+<td style="text-align: left;">编辑时 Tab 的空格数</td>
 </tr>
-</tbody></table>
-<hr>
-<h2 id="🔍-搜索与替换-Search-Replace"><a href="#🔍-搜索与替换-Search-Replace" class="headerlink" title="🔍 搜索与替换 (Search &amp; Replace)"></a>🔍 搜索与替换 (Search &amp; Replace)</h2><table>
+</tbody>
+</table>
+<hr />
+<h2 id="搜索与替换-search-replace">🔍 搜索与替换 (Search &amp;
+Replace)</h2>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 9%" />
+<col style="width: 15%" />
+<col style="width: 57%" />
+</colgroup>
 <thead>
 <tr>
-<th align="left">选项</th>
-<th align="left">类型</th>
-<th align="left">默认值</th>
-<th align="left">描述</th>
+<th style="text-align: left;">选项</th>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">默认值</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><code>ignorecase</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">搜索时忽略大小写</td>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ignorecase</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">搜索时忽略大小写</td>
 </tr>
 <tr>
-<td align="left"><code>smartcase</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">智能大小写处理</td>
+<td style="text-align: left;"><code>smartcase</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">智能大小写处理</td>
 </tr>
 <tr>
-<td align="left"><code>incsearch</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>true</code></td>
-<td align="left">增量搜索</td>
+<td style="text-align: left;"><code>incsearch</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>true</code></td>
+<td style="text-align: left;">增量搜索</td>
 </tr>
 <tr>
-<td align="left"><code>hlsearch</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>true</code></td>
-<td align="left">高亮搜索结果</td>
+<td style="text-align: left;"><code>hlsearch</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>true</code></td>
+<td style="text-align: left;">高亮搜索结果</td>
 </tr>
 <tr>
-<td align="left"><code>inccommand</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;nosplit&quot;</code></td>
-<td align="left">实时显示替换效果 (<code>&quot;nosplit&quot;</code>, <code>&quot;split&quot;</code>)</td>
+<td style="text-align: left;"><code>inccommand</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>"nosplit"</code></td>
+<td style="text-align: left;">实时显示替换效果 (<code>"nosplit"</code>,
+<code>"split"</code>)</td>
 </tr>
 <tr>
-<td align="left"><code>gdefault</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">默认全局替换</td>
+<td style="text-align: left;"><code>gdefault</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">默认全局替换</td>
 </tr>
-</tbody></table>
-<hr>
-<h2 id="📄-文本显示-Text-Display"><a href="#📄-文本显示-Text-Display" class="headerlink" title="📄 文本显示 (Text Display)"></a>📄 文本显示 (Text Display)</h2><table>
+</tbody>
+</table>
+<hr />
+<h2 id="文本显示-text-display">📄 文本显示 (Text Display)</h2>
+<table>
 <thead>
 <tr>
-<th align="left">选项</th>
-<th align="left">类型</th>
-<th align="left">默认值</th>
-<th align="left">描述</th>
+<th style="text-align: left;">选项</th>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">默认值</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><code>textwidth</code></td>
-<td align="left">number</td>
-<td align="left"><code>0</code></td>
-<td align="left">文本最大宽度 (0&#x3D;禁用)</td>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>textwidth</code></td>
+<td style="text-align: left;">number</td>
+<td style="text-align: left;"><code>0</code></td>
+<td style="text-align: left;">文本最大宽度 (0=禁用)</td>
 </tr>
 <tr>
-<td align="left"><code>colorcolumn</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;&quot;</code></td>
-<td align="left">高亮指定列</td>
+<td style="text-align: left;"><code>colorcolumn</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>""</code></td>
+<td style="text-align: left;">高亮指定列</td>
 </tr>
 <tr>
-<td align="left"><code>conceallevel</code></td>
-<td align="left">number</td>
-<td align="left"><code>0</code></td>
-<td align="left">隐藏文本的级别</td>
+<td style="text-align: left;"><code>conceallevel</code></td>
+<td style="text-align: left;">number</td>
+<td style="text-align: left;"><code>0</code></td>
+<td style="text-align: left;">隐藏文本的级别</td>
 </tr>
 <tr>
-<td align="left"><code>concealcursor</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;&quot;</code></td>
-<td align="left">隐藏文本的光标模式</td>
+<td style="text-align: left;"><code>concealcursor</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>""</code></td>
+<td style="text-align: left;">隐藏文本的光标模式</td>
 </tr>
 <tr>
-<td align="left"><code>scrolloff</code></td>
-<td align="left">number</td>
-<td align="left"><code>0</code></td>
-<td align="left">光标上下保留的行数</td>
+<td style="text-align: left;"><code>scrolloff</code></td>
+<td style="text-align: left;">number</td>
+<td style="text-align: left;"><code>0</code></td>
+<td style="text-align: left;">光标上下保留的行数</td>
 </tr>
 <tr>
-<td align="left"><code>sidescrolloff</code></td>
-<td align="left">number</td>
-<td align="left"><code>0</code></td>
-<td align="left">光标左右保留的列数</td>
+<td style="text-align: left;"><code>sidescrolloff</code></td>
+<td style="text-align: left;">number</td>
+<td style="text-align: left;"><code>0</code></td>
+<td style="text-align: left;">光标左右保留的列数</td>
 </tr>
-</tbody></table>
-<hr>
-<h2 id="⚡-性能相关-Performance"><a href="#⚡-性能相关-Performance" class="headerlink" title="⚡ 性能相关 (Performance)"></a>⚡ 性能相关 (Performance)</h2><table>
+</tbody>
+</table>
+<hr />
+<h2 id="性能相关-performance">⚡ 性能相关 (Performance)</h2>
+<table>
 <thead>
 <tr>
-<th align="left">选项</th>
-<th align="left">类型</th>
-<th align="left">默认值</th>
-<th align="left">描述</th>
+<th style="text-align: left;">选项</th>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">默认值</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><code>lazyredraw</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">延迟重绘</td>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>lazyredraw</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">延迟重绘</td>
 </tr>
 <tr>
-<td align="left"><code>redrawtime</code></td>
-<td align="left">number</td>
-<td align="left"><code>2000</code></td>
-<td align="left">重绘超时时间</td>
+<td style="text-align: left;"><code>redrawtime</code></td>
+<td style="text-align: left;">number</td>
+<td style="text-align: left;"><code>2000</code></td>
+<td style="text-align: left;">重绘超时时间</td>
 </tr>
 <tr>
-<td align="left"><code>timeoutlen</code></td>
-<td align="left">number</td>
-<td align="left"><code>1000</code></td>
-<td align="left">映射超时时间</td>
+<td style="text-align: left;"><code>timeoutlen</code></td>
+<td style="text-align: left;">number</td>
+<td style="text-align: left;"><code>1000</code></td>
+<td style="text-align: left;">映射超时时间</td>
 </tr>
 <tr>
-<td align="left"><code>ttimeoutlen</code></td>
-<td align="left">number</td>
-<td align="left"><code>50</code></td>
-<td align="left">键码超时时间</td>
+<td style="text-align: left;"><code>ttimeoutlen</code></td>
+<td style="text-align: left;">number</td>
+<td style="text-align: left;"><code>50</code></td>
+<td style="text-align: left;">键码超时时间</td>
 </tr>
 <tr>
-<td align="left"><code>updatetime</code></td>
-<td align="left">number</td>
-<td align="left"><code>4000</code></td>
-<td align="left">更新时间间隔</td>
+<td style="text-align: left;"><code>updatetime</code></td>
+<td style="text-align: left;">number</td>
+<td style="text-align: left;"><code>4000</code></td>
+<td style="text-align: left;">更新时间间隔</td>
 </tr>
-</tbody></table>
-<hr>
-<h2 id="🎨-颜色与语法-Colors-Syntax"><a href="#🎨-颜色与语法-Colors-Syntax" class="headerlink" title="🎨 颜色与语法 (Colors &amp; Syntax)"></a>🎨 颜色与语法 (Colors &amp; Syntax)</h2><table>
+</tbody>
+</table>
+<hr />
+<h2 id="颜色与语法-colors-syntax">🎨 颜色与语法 (Colors &amp;
+Syntax)</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 11%" />
+<col style="width: 13%" />
+<col style="width: 50%" />
+</colgroup>
 <thead>
 <tr>
-<th align="left">选项</th>
-<th align="left">类型</th>
-<th align="left">默认值</th>
-<th align="left">描述</th>
+<th style="text-align: left;">选项</th>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">默认值</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><code>syntax</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;ON&quot;</code></td>
-<td align="left">语法高亮</td>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>syntax</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>"ON"</code></td>
+<td style="text-align: left;">语法高亮</td>
 </tr>
 <tr>
-<td align="left"><code>background</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;dark&quot;</code></td>
-<td align="left">背景色调 (<code>&quot;light&quot;</code>, <code>&quot;dark&quot;</code>)</td>
+<td style="text-align: left;"><code>background</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>"dark"</code></td>
+<td style="text-align: left;">背景色调 (<code>"light"</code>,
+<code>"dark"</code>)</td>
 </tr>
 <tr>
-<td align="left"><code>termguicolors</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">启用真彩色</td>
+<td style="text-align: left;"><code>termguicolors</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">启用真彩色</td>
 </tr>
-</tbody></table>
-<hr>
-<h2 id="🌐-文件与编码-Files-Encoding"><a href="#🌐-文件与编码-Files-Encoding" class="headerlink" title="🌐 文件与编码 (Files &amp; Encoding)"></a>🌐 文件与编码 (Files &amp; Encoding)</h2><table>
+</tbody>
+</table>
+<hr />
+<h2 id="文件与编码-files-encoding">🌐 文件与编码 (Files &amp;
+Encoding)</h2>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 8%" />
+<col style="width: 21%" />
+<col style="width: 50%" />
+</colgroup>
 <thead>
 <tr>
-<th align="left">选项</th>
-<th align="left">类型</th>
-<th align="left">默认值</th>
-<th align="left">描述</th>
+<th style="text-align: left;">选项</th>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">默认值</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><code>fileencoding</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;utf-8&quot;</code></td>
-<td align="left">文件编码</td>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>fileencoding</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>"utf-8"</code></td>
+<td style="text-align: left;">文件编码</td>
 </tr>
 <tr>
-<td align="left"><code>encoding</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;utf-8&quot;</code></td>
-<td align="left">内部编码</td>
+<td style="text-align: left;"><code>encoding</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>"utf-8"</code></td>
+<td style="text-align: left;">内部编码</td>
 </tr>
 <tr>
-<td align="left"><code>fileformat</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;unix&quot;</code></td>
-<td align="left">文件格式 (<code>&quot;unix&quot;</code>, <code>&quot;dos&quot;</code>, <code>&quot;mac&quot;</code>)</td>
+<td style="text-align: left;"><code>fileformat</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>"unix"</code></td>
+<td style="text-align: left;">文件格式 (<code>"unix"</code>,
+<code>"dos"</code>, <code>"mac"</code>)</td>
 </tr>
 <tr>
-<td align="left"><code>fileformats</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;unix,dos,mac&quot;</code></td>
-<td align="left">自动检测的文件格式</td>
+<td style="text-align: left;"><code>fileformats</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>"unix,dos,mac"</code></td>
+<td style="text-align: left;">自动检测的文件格式</td>
 </tr>
-</tbody></table>
-<hr>
-<h2 id="🔧-高级选项-Advanced-Options"><a href="#🔧-高级选项-Advanced-Options" class="headerlink" title="🔧 高级选项 (Advanced Options)"></a>🔧 高级选项 (Advanced Options)</h2><table>
+</tbody>
+</table>
+<hr />
+<h2 id="高级选项-advanced-options">🔧 高级选项 (Advanced Options)</h2>
+<table>
 <thead>
 <tr>
-<th align="left">选项</th>
-<th align="left">类型</th>
-<th align="left">默认值</th>
-<th align="left">描述</th>
+<th style="text-align: left;">选项</th>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">默认值</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><code>completeopt</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;menu,preview&quot;</code></td>
-<td align="left">补全选项</td>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>completeopt</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>"menu,preview"</code></td>
+<td style="text-align: left;">补全选项</td>
 </tr>
 <tr>
-<td align="left"><code>wildmode</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;full&quot;</code></td>
-<td align="left">命令行补全模式</td>
+<td style="text-align: left;"><code>wildmode</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>"full"</code></td>
+<td style="text-align: left;">命令行补全模式</td>
 </tr>
 <tr>
-<td align="left"><code>wildmenu</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">启用命令行补全菜单</td>
+<td style="text-align: left;"><code>wildmenu</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">启用命令行补全菜单</td>
 </tr>
 <tr>
-<td align="left"><code>shortmess</code></td>
-<td align="left">string</td>
-<td align="left"><code>&quot;filnxtToOF&quot;</code></td>
-<td align="left">短消息标志</td>
+<td style="text-align: left;"><code>shortmess</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>"filnxtToOF"</code></td>
+<td style="text-align: left;">短消息标志</td>
 </tr>
 <tr>
-<td align="left"><code>cmdheight</code></td>
-<td align="left">number</td>
-<td align="left"><code>1</code></td>
-<td align="left">命令行高度</td>
+<td style="text-align: left;"><code>cmdheight</code></td>
+<td style="text-align: left;">number</td>
+<td style="text-align: left;"><code>1</code></td>
+<td style="text-align: left;">命令行高度</td>
 </tr>
 <tr>
-<td align="left"><code>showtabline</code></td>
-<td align="left">number</td>
-<td align="left"><code>1</code></td>
-<td align="left">标签页显示</td>
+<td style="text-align: left;"><code>showtabline</code></td>
+<td style="text-align: left;">number</td>
+<td style="text-align: left;"><code>1</code></td>
+<td style="text-align: left;">标签页显示</td>
 </tr>
-</tbody></table>
-<hr>
-<h2 id="🎯-完整配置示例"><a href="#🎯-完整配置示例" class="headerlink" title="🎯 完整配置示例"></a>🎯 完整配置示例</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 显示与界面</span></span><br><span class="line">vim.opt.number = <span class="literal">true</span></span><br><span class="line">vim.opt.relativenumber = <span class="literal">true</span></span><br><span class="line">vim.opt.cursorline = <span class="literal">true</span></span><br><span class="line">vim.opt.signcolumn = <span class="string">&quot;yes&quot;</span></span><br><span class="line">vim.opt.<span class="built_in">wrap</span> = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 缩进与制表符</span></span><br><span class="line">vim.opt.tabstop = <span class="number">4</span></span><br><span class="line">vim.opt.shiftwidth = <span class="number">4</span></span><br><span class="line">vim.opt.expandtab = <span class="literal">true</span></span><br><span class="line">vim.opt.smartindent = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 搜索行为</span></span><br><span class="line">vim.opt.ignorecase = <span class="literal">true</span></span><br><span class="line">vim.opt.smartcase = <span class="literal">true</span></span><br><span class="line">vim.opt.hlsearch = <span class="literal">true</span></span><br><span class="line">vim.opt.incsearch = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 文件处理</span></span><br><span class="line">vim.opt.swapfile = <span class="literal">false</span></span><br><span class="line">vim.opt.backup = <span class="literal">false</span></span><br><span class="line">vim.opt.undofile = <span class="literal">true</span></span><br><span class="line">vim.opt.writebackup = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 性能优化</span></span><br><span class="line">vim.opt.updatetime = <span class="number">300</span></span><br><span class="line">vim.opt.timeoutlen = <span class="number">300</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 其他</span></span><br><span class="line">vim.opt.mouse = <span class="string">&quot;a&quot;</span></span><br><span class="line">vim.opt.clipboard = <span class="string">&quot;unnamedplus&quot;</span></span><br><span class="line">vim.opt.termguicolors = <span class="literal">true</span></span><br><span class="line">vim.opt.scrolloff = <span class="number">8</span></span><br><span class="line">vim.opt.sidescrolloff = <span class="number">8</span></span><br><span class="line">vim.opt.colorcolumn = <span class="string">&quot;80&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用 :append 和 :prepend 方法</span></span><br><span class="line">vim.opt.<span class="built_in">path</span>:append(<span class="string">&quot;**&quot;</span>)  <span class="comment">-- 在路径搜索中包含子目录</span></span><br><span class="line">vim.opt.wildignore:append(&#123; <span class="string">&quot;*.o&quot;</span>, <span class="string">&quot;*.a&quot;</span>, <span class="string">&quot;__pycache__&quot;</span> &#125;)</span><br></pre></td></tr></table></figure>
-
-<h1 id="按键映射-vim-keymap"><a href="#按键映射-vim-keymap" class="headerlink" title="按键映射 vim.keymap"></a>按键映射 vim.keymap</h1><p>基本语法</p>
+</tbody>
+</table>
+<hr />
+<h2 id="完整配置示例">🎯 完整配置示例</h2>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 显示与界面</span></span><br><span class="line">vim.opt.number = <span class="literal">true</span></span><br><span class="line">vim.opt.relativenumber = <span class="literal">true</span></span><br><span class="line">vim.opt.cursorline = <span class="literal">true</span></span><br><span class="line">vim.opt.signcolumn = <span class="string">&quot;yes&quot;</span></span><br><span class="line">vim.opt.<span class="built_in">wrap</span> = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 缩进与制表符</span></span><br><span class="line">vim.opt.tabstop = <span class="number">4</span></span><br><span class="line">vim.opt.shiftwidth = <span class="number">4</span></span><br><span class="line">vim.opt.expandtab = <span class="literal">true</span></span><br><span class="line">vim.opt.smartindent = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 搜索行为</span></span><br><span class="line">vim.opt.ignorecase = <span class="literal">true</span></span><br><span class="line">vim.opt.smartcase = <span class="literal">true</span></span><br><span class="line">vim.opt.hlsearch = <span class="literal">true</span></span><br><span class="line">vim.opt.incsearch = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 文件处理</span></span><br><span class="line">vim.opt.swapfile = <span class="literal">false</span></span><br><span class="line">vim.opt.backup = <span class="literal">false</span></span><br><span class="line">vim.opt.undofile = <span class="literal">true</span></span><br><span class="line">vim.opt.writebackup = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 性能优化</span></span><br><span class="line">vim.opt.updatetime = <span class="number">300</span></span><br><span class="line">vim.opt.timeoutlen = <span class="number">300</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 其他</span></span><br><span class="line">vim.opt.mouse = <span class="string">&quot;a&quot;</span></span><br><span class="line">vim.opt.clipboard = <span class="string">&quot;unnamedplus&quot;</span></span><br><span class="line">vim.opt.termguicolors = <span class="literal">true</span></span><br><span class="line">vim.opt.scrolloff = <span class="number">8</span></span><br><span class="line">vim.opt.sidescrolloff = <span class="number">8</span></span><br><span class="line">vim.opt.colorcolumn = <span class="string">&quot;80&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用 :append 和 :prepend 方法</span></span><br><span class="line">vim.opt.<span class="built_in">path</span>:append(<span class="string">&quot;**&quot;</span>)  <span class="comment">-- 在路径搜索中包含子目录</span></span><br><span class="line">vim.opt.wildignore:append(&#123; <span class="string">&quot;*.o&quot;</span>, <span class="string">&quot;*.a&quot;</span>, <span class="string">&quot;__pycache__&quot;</span> &#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="按键映射-vim.keymap">按键映射 vim.keymap</h1>
+<p>基本语法</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim.keymap.set(&#123;mode&#125;, &#123;lhs&#125;, &#123;rhs&#125;, &#123;opts&#125;)</span><br></pre></td></tr></table></figure>
-
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 36%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">参数</th>
+<th style="text-align: left;">描述</th>
+<th style="text-align: left;">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>&#123;mode&#125;</code></td>
+<td style="text-align: left;">映射生效的模式</td>
+<td style="text-align: left;"><code>'n'</code>, <code>'i'</code>,
+<code>'v'</code>, <code>'x'</code>, <code>'t'</code>,
+<code>''</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&#123;lhs&#125;</code></td>
+<td style="text-align: left;">左手边 - 要映射的按键</td>
+<td style="text-align: left;"><code>'&lt;leader&gt;w'</code>,
+<code>'jk'</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&#123;rhs&#125;</code></td>
+<td style="text-align: left;">右手边 - 映射到的命令或函数</td>
+<td style="text-align: left;"><code>'&lt;cmd&gt;w&lt;cr&gt;'</code>,
+<code>function() ... end</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&#123;opts&#125;</code></td>
+<td style="text-align: left;">可选参数表</td>
+<td
+style="text-align: left;"><code>&#123; silent = true, desc = 'Save file' &#125;</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="模式-modes">🎯 模式 (Modes)</h2>
+<p><code>vim.keymap.set()</code> 支持所有 Vim 模式：</p>
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">描述</th>
-<th align="left">示例</th>
+<th style="text-align: left;">模式字符串</th>
+<th style="text-align: left;">描述</th>
+<th style="text-align: left;">常用场景</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><code>&#123;mode&#125;</code></td>
-<td align="left">映射生效的模式</td>
-<td align="left"><code>&#39;n&#39;</code>, <code>&#39;i&#39;</code>, <code>&#39;v&#39;</code>, <code>&#39;x&#39;</code>, <code>&#39;t&#39;</code>, <code>&#39;&#39;</code></td>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>'n'</code></td>
+<td style="text-align: left;"><strong>Normal 模式</strong></td>
+<td style="text-align: left;">导航、文件操作</td>
 </tr>
 <tr>
-<td align="left"><code>&#123;lhs&#125;</code></td>
-<td align="left">左手边 - 要映射的按键</td>
-<td align="left"><code>&#39;&lt;leader&gt;w&#39;</code>, <code>&#39;jk&#39;</code></td>
+<td style="text-align: left;"><code>'i'</code></td>
+<td style="text-align: left;"><strong>Insert 模式</strong></td>
+<td style="text-align: left;">快速退出、特殊输入</td>
 </tr>
 <tr>
-<td align="left"><code>&#123;rhs&#125;</code></td>
-<td align="left">右手边 - 映射到的命令或函数</td>
-<td align="left"><code>&#39;&lt;cmd&gt;w&lt;cr&gt;&#39;</code>, <code>function() ... end</code></td>
+<td style="text-align: left;"><code>'v'</code></td>
+<td style="text-align: left;"><strong>Visual 模式</strong></td>
+<td style="text-align: left;">文本选择、操作</td>
 </tr>
 <tr>
-<td align="left"><code>&#123;opts&#125;</code></td>
-<td align="left">可选参数表</td>
-<td align="left"><code>&#123; silent = true, desc = &#39;Save file&#39; &#125;</code></td>
-</tr>
-</tbody></table>
-<h2 id="🎯-模式-Modes"><a href="#🎯-模式-Modes" class="headerlink" title="🎯 模式 (Modes)"></a>🎯 模式 (Modes)</h2><p><code>vim.keymap.set()</code> 支持所有 Vim 模式：</p>
-<table>
-<thead>
-<tr>
-<th align="left">模式字符串</th>
-<th align="left">描述</th>
-<th align="left">常用场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>&#39;n&#39;</code></td>
-<td align="left"><strong>Normal 模式</strong></td>
-<td align="left">导航、文件操作</td>
+<td style="text-align: left;"><code>'x'</code></td>
+<td style="text-align: left;"><strong>Visual 模式</strong> (同
+<code>'v'</code>)</td>
+<td style="text-align: left;"></td>
 </tr>
 <tr>
-<td align="left"><code>&#39;i&#39;</code></td>
-<td align="left"><strong>Insert 模式</strong></td>
-<td align="left">快速退出、特殊输入</td>
+<td style="text-align: left;"><code>'s'</code></td>
+<td style="text-align: left;"><strong>Select 模式</strong></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr>
-<td align="left"><code>&#39;v&#39;</code></td>
-<td align="left"><strong>Visual 模式</strong></td>
-<td align="left">文本选择、操作</td>
+<td style="text-align: left;"><code>'t'</code></td>
+<td style="text-align: left;"><strong>Terminal 模式</strong></td>
+<td style="text-align: left;">终端操作</td>
 </tr>
 <tr>
-<td align="left"><code>&#39;x&#39;</code></td>
-<td align="left"><strong>Visual 模式</strong> (同 <code>&#39;v&#39;</code>)</td>
-<td align="left"></td>
+<td style="text-align: left;"><code>'c'</code></td>
+<td style="text-align: left;"><strong>Command-line 模式</strong></td>
+<td style="text-align: left;">命令行快捷方式</td>
 </tr>
 <tr>
-<td align="left"><code>&#39;s&#39;</code></td>
-<td align="left"><strong>Select 模式</strong></td>
-<td align="left"></td>
+<td style="text-align: left;"><code>'o'</code></td>
+<td style="text-align: left;"><strong>Operator-pending
+模式</strong></td>
+<td style="text-align: left;">操作符等待</td>
 </tr>
 <tr>
-<td align="left"><code>&#39;t&#39;</code></td>
-<td align="left"><strong>Terminal 模式</strong></td>
-<td align="left">终端操作</td>
+<td style="text-align: left;"><code>''</code></td>
+<td style="text-align: left;"><strong>所有模式</strong></td>
+<td style="text-align: left;">通用映射</td>
 </tr>
-<tr>
-<td align="left"><code>&#39;c&#39;</code></td>
-<td align="left"><strong>Command-line 模式</strong></td>
-<td align="left">命令行快捷方式</td>
-</tr>
-<tr>
-<td align="left"><code>&#39;o&#39;</code></td>
-<td align="left"><strong>Operator-pending 模式</strong></td>
-<td align="left">操作符等待</td>
-</tr>
-<tr>
-<td align="left"><code>&#39;&#39;</code></td>
-<td align="left"><strong>所有模式</strong></td>
-<td align="left">通用映射</td>
-</tr>
-</tbody></table>
+</tbody>
+</table>
 <p><strong>组合模式示例：</strong></p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 在普通模式和可视模式都生效</span></span><br><span class="line">vim.keymap.set(&#123;<span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;v&#x27;</span>&#125;, <span class="string">&#x27;&lt;leader&gt;y&#x27;</span>, <span class="string">&#x27;&quot;+y&#x27;</span>, &#123; desc = <span class="string">&#x27;Yank to system clipboard&#x27;</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 在插入和命令行模式都生效</span></span><br><span class="line">vim.keymap.set(&#123;<span class="string">&#x27;i&#x27;</span>, <span class="string">&#x27;c&#x27;</span>&#125;, <span class="string">&#x27;jk&#x27;</span>, <span class="string">&#x27;&lt;Esc&gt;&#x27;</span>, &#123; desc = <span class="string">&#x27;Escape to normal mode&#x27;</span> &#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h2 id="🔧-选项参数-opts"><a href="#🔧-选项参数-opts" class="headerlink" title="🔧 选项参数 ({opts})"></a>🔧 选项参数 (<code>&#123;opts&#125;</code>)</h2><p><code>vim.keymap.set()</code> 接受一个可选的选项表，提供了强大的控制能力：</p>
-<h3 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h3><table>
+<hr />
+<h2 id="选项参数-opts">🔧 选项参数 (<code>&#123;opts&#125;</code>)</h2>
+<p><code>vim.keymap.set()</code>
+接受一个可选的选项表，提供了强大的控制能力：</p>
+<h3 id="常用选项">常用选项</h3>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 22%" />
+<col style="width: 11%" />
+<col style="width: 52%" />
+</colgroup>
 <thead>
 <tr>
-<th align="left">选项</th>
-<th align="left">类型</th>
-<th align="left">默认值</th>
-<th align="left">描述</th>
+<th style="text-align: left;">选项</th>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">默认值</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><code>silent</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">不显示执行的命令</td>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>silent</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">不显示执行的命令</td>
 </tr>
 <tr>
-<td align="left"><code>noremap</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>true</code></td>
-<td align="left"><strong>非递归映射</strong>（推荐总是启用）</td>
+<td style="text-align: left;"><code>noremap</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>true</code></td>
+<td
+style="text-align: left;"><strong>非递归映射</strong>（推荐总是启用）</td>
 </tr>
 <tr>
-<td align="left"><code>expr</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">将 <code>&#123;rhs&#125;</code> 作为表达式求值</td>
+<td style="text-align: left;"><code>expr</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">将 <code>&#123;rhs&#125;</code> 作为表达式求值</td>
 </tr>
 <tr>
-<td align="left"><code>nowait</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">不等待更长的映射匹配</td>
+<td style="text-align: left;"><code>nowait</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">不等待更长的映射匹配</td>
 </tr>
 <tr>
-<td align="left"><code>script</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">使用 Vimscript 映射语义</td>
+<td style="text-align: left;"><code>script</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">使用 Vimscript 映射语义</td>
 </tr>
 <tr>
-<td align="left"><code>unique</code></td>
-<td align="left">boolean</td>
-<td align="left"><code>false</code></td>
-<td align="left">如果映射已存在则失败</td>
+<td style="text-align: left;"><code>unique</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">如果映射已存在则失败</td>
 </tr>
 <tr>
-<td align="left"><code>desc</code></td>
-<td align="left">string</td>
-<td align="left"><code>nil</code></td>
-<td align="left">映射描述（用于 which-key 等插件）</td>
+<td style="text-align: left;"><code>desc</code></td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><code>nil</code></td>
+<td style="text-align: left;">映射描述（用于 which-key 等插件）</td>
 </tr>
 <tr>
-<td align="left"><code>buffer</code></td>
-<td align="left">number&#x2F;boolean</td>
-<td align="left"><code>nil</code></td>
-<td align="left">缓冲区局部映射</td>
+<td style="text-align: left;"><code>buffer</code></td>
+<td style="text-align: left;">number/boolean</td>
+<td style="text-align: left;"><code>nil</code></td>
+<td style="text-align: left;">缓冲区局部映射</td>
 </tr>
-</tbody></table>
-<h3 id="特殊选项"><a href="#特殊选项" class="headerlink" title="特殊选项"></a>特殊选项</h3><table>
+</tbody>
+</table>
+<h3 id="特殊选项">特殊选项</h3>
+<table>
 <thead>
 <tr>
-<th align="left">选项</th>
-<th align="left">类型</th>
-<th align="left">描述</th>
+<th style="text-align: left;">选项</th>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><code>replace_keycodes</code></td>
-<td align="left">boolean</td>
-<td align="left">替换键码（用于 <code>expr</code> 映射）</td>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>replace_keycodes</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;">替换键码（用于 <code>expr</code>
+映射）</td>
 </tr>
 <tr>
-<td align="left"><code>remap</code></td>
-<td align="left">boolean</td>
-<td align="left">允许递归映射（不推荐）</td>
+<td style="text-align: left;"><code>remap</code></td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;">允许递归映射（不推荐）</td>
 </tr>
-</tbody></table>
-<hr>
-<h2 id="🎪-映射右侧-rhs-的类型"><a href="#🎪-映射右侧-rhs-的类型" class="headerlink" title="🎪 映射右侧 ({rhs}) 的类型"></a>🎪 映射右侧 (<code>&#123;rhs&#125;</code>) 的类型</h2><h3 id="1-字符串命令（最常见）"><a href="#1-字符串命令（最常见）" class="headerlink" title="1. 字符串命令（最常见）"></a>1. 字符串命令（最常见）</h3><p>lua</p>
+</tbody>
+</table>
+<hr />
+<h2 id="映射右侧-rhs-的类型">🎪 映射右侧 (<code>&#123;rhs&#125;</code>)
+的类型</h2>
+<h3 id="字符串命令最常见">1. 字符串命令（最常见）</h3>
+<p>lua</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-- Ex 命令</span><br><span class="line">vim.keymap.set(&#x27;n&#x27;, &#x27;&lt;leader&gt;w&#x27;, &#x27;&lt;cmd&gt;w&lt;cr&gt;&#x27;, &#123; desc = &#x27;Save file&#x27; &#125;)</span><br><span class="line"></span><br><span class="line">-- 普通模式命令</span><br><span class="line">vim.keymap.set(&#x27;n&#x27;, &#x27;J&#x27;, &#x27;mzJ`z&#x27;, &#123; desc = &#x27;Join lines without moving cursor&#x27; &#125;)</span><br><span class="line"></span><br><span class="line">-- 带特殊键</span><br><span class="line">vim.keymap.set(&#x27;n&#x27;, &#x27;&lt;C-d&gt;&#x27;, &#x27;&lt;C-d&gt;zz&#x27;)  -- 向下滚动并居中</span><br><span class="line">vim.keymap.set(&#x27;n&#x27;, &#x27;&lt;C-u&gt;&#x27;, &#x27;&lt;C-u&gt;zz&#x27;)  -- 向上滚动并居中</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-Lua-函数（更强大）"><a href="#2-Lua-函数（更强大）" class="headerlink" title="2. Lua 函数（更强大）"></a>2. Lua 函数（更强大）</h3><p>lua</p>
+<h3 id="lua-函数更强大">2. Lua 函数（更强大）</h3>
+<p>lua</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-- 简单函数</span><br><span class="line">local function show_date()</span><br><span class="line">    local date = os.date(&quot;%Y-%m-%d %H:%M:%S&quot;)</span><br><span class="line">    print(&quot;Current date: &quot; .. date)</span><br><span class="line">end</span><br><span class="line">vim.keymap.set(&#x27;n&#x27;, &#x27;&lt;leader&gt;d&#x27;, show_date, &#123; desc = &#x27;Show current date&#x27; &#125;)</span><br><span class="line"></span><br><span class="line">-- 内联函数</span><br><span class="line">vim.keymap.set(&#x27;n&#x27;, &#x27;&lt;leader&gt;l&#x27;, function()</span><br><span class="line">    vim.cmd(&#x27;Lazy&#x27;)  -- 打开插件管理器</span><br><span class="line">end, &#123; desc = &#x27;Open Lazy plugin manager&#x27; &#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-表达式（高级用法）"><a href="#3-表达式（高级用法）" class="headerlink" title="3. 表达式（高级用法）"></a>3. 表达式（高级用法）</h3><p>lua</p>
+<h3 id="表达式高级用法">3. 表达式（高级用法）</h3>
+<p>lua</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- 条件映射</span><br><span class="line">vim.keymap.set(&#x27;i&#x27;, &#x27;&lt;Tab&gt;&#x27;, function()</span><br><span class="line">    if vim.fn.pumvisible() == 1 then</span><br><span class="line">        return &#x27;&lt;C-n&gt;&#x27;  -- 补全菜单打开时选择下一个</span><br><span class="line">    else</span><br><span class="line">        return &#x27;&lt;Tab&gt;&#x27;  -- 否则插入制表符</span><br><span class="line">    end</span><br><span class="line">end, &#123; expr = true, desc = &#x27;Smart tab completion&#x27; &#125;)</span><br></pre></td></tr></table></figure>
-
-<h1 id="映射快捷键定义"><a href="#映射快捷键定义" class="headerlink" title="映射快捷键定义"></a>映射快捷键定义</h1><h2 id="🎯-核心概念：Leader-键"><a href="#🎯-核心概念：Leader-键" class="headerlink" title="🎯 核心概念：Leader 键"></a>🎯 核心概念：Leader 键</h2><h3 id="什么是-Leader-键？"><a href="#什么是-Leader-键？" class="headerlink" title="什么是 Leader 键？"></a>什么是 Leader 键？</h3><p><code>&lt;leader&gt;</code> 是一个<strong>前缀键</strong>，它本身不执行任何操作，而是用来创建命名空间，避免快捷键冲突。你可以把它想象成编程中的命名空间或计算机上的 <code>Ctrl</code>&#x2F;<code>Alt</code> 键。</p>
-<h3 id="如何设置-Leader-键？"><a href="#如何设置-Leader-键？" class="headerlink" title="如何设置 Leader 键？"></a>如何设置 Leader 键？</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 在 init.lua 的最开始设置（必须在映射之前）</span></span><br><span class="line">vim.g.mapleader = <span class="string">&quot; &quot;</span>        <span class="comment">-- 使用空格键作为 Leader</span></span><br><span class="line">vim.g.maplocalleader = <span class="string">&quot;\\&quot;</span>  <span class="comment">-- 使用反斜杠作为本地 Leader（用于文件类型特定的映射）</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="为什么使用-Leader-键？"><a href="#为什么使用-Leader-键？" class="headerlink" title="为什么使用 Leader 键？"></a>为什么使用 Leader 键？</h3><ul>
+<h1 id="映射快捷键定义">映射快捷键定义</h1>
+<h2 id="核心概念leader-键">🎯 核心概念：Leader 键</h2>
+<h3 id="什么是-leader-键">什么是 Leader 键？</h3>
+<p><code>&lt;leader&gt;</code>
+是一个<strong>前缀键</strong>，它本身不执行任何操作，而是用来创建命名空间，避免快捷键冲突。你可以把它想象成编程中的命名空间或计算机上的
+<code>Ctrl</code>/<code>Alt</code> 键。</p>
+<h3 id="如何设置-leader-键">如何设置 Leader 键？</h3>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 在 init.lua 的最开始设置（必须在映射之前）</span></span><br><span class="line">vim.g.mapleader = <span class="string">&quot; &quot;</span>        <span class="comment">-- 使用空格键作为 Leader</span></span><br><span class="line">vim.g.maplocalleader = <span class="string">&quot;\\&quot;</span>  <span class="comment">-- 使用反斜杠作为本地 Leader（用于文件类型特定的映射）</span></span><br></pre></td></tr></table></figure>
+<h3 id="为什么使用-leader-键">为什么使用 Leader 键？</h3>
+<ul>
 <li><strong>避免冲突</strong>：不与内置快捷键冲突</li>
-<li><strong>易于记忆</strong>：<code>&lt;leader&gt;w</code> 保存，<code>&lt;leader&gt;q</code> 退出</li>
+<li><strong>易于记忆</strong>：<code>&lt;leader&gt;w</code>
+保存，<code>&lt;leader&gt;q</code> 退出</li>
 <li><strong>可扩展性</strong>：可以创建大量自定义快捷键</li>
 </ul>
-<hr>
-<h2 id="📋-特殊键表示法大全"><a href="#📋-特殊键表示法大全" class="headerlink" title="📋 特殊键表示法大全"></a>📋 特殊键表示法大全</h2><h3 id="1-修饰键-Modifier-Keys"><a href="#1-修饰键-Modifier-Keys" class="headerlink" title="1. 修饰键 (Modifier Keys)"></a>1. 修饰键 (Modifier Keys)</h3><table>
+<hr />
+<h2 id="特殊键表示法大全">📋 特殊键表示法大全</h2>
+<h3 id="修饰键-modifier-keys">1. 修饰键 (Modifier Keys)</h3>
+<table>
 <thead>
 <tr>
-<th align="left">表示法</th>
-<th align="left">实际按键</th>
-<th align="left">描述</th>
+<th style="text-align: left;">表示法</th>
+<th style="text-align: left;">实际按键</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><code>&lt;C-&gt;</code></td>
-<td align="left"><code>Control</code></td>
-<td align="left">Ctrl 键</td>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>&lt;C-&gt;</code></td>
+<td style="text-align: left;"><code>Control</code></td>
+<td style="text-align: left;">Ctrl 键</td>
 </tr>
 <tr>
-<td align="left"><code>&lt;A-&gt;</code></td>
-<td align="left"><code>Alt</code></td>
-<td align="left">Alt&#x2F;Option 键</td>
+<td style="text-align: left;"><code>&lt;A-&gt;</code></td>
+<td style="text-align: left;"><code>Alt</code></td>
+<td style="text-align: left;">Alt/Option 键</td>
 </tr>
 <tr>
-<td align="left"><code>&lt;M-&gt;</code></td>
-<td align="left"><code>Meta</code></td>
-<td align="left">Meta 键（通常同 Alt）</td>
+<td style="text-align: left;"><code>&lt;M-&gt;</code></td>
+<td style="text-align: left;"><code>Meta</code></td>
+<td style="text-align: left;">Meta 键（通常同 Alt）</td>
 </tr>
 <tr>
-<td align="left"><code>&lt;S-&gt;</code></td>
-<td align="left"><code>Shift</code></td>
-<td align="left">Shift 键</td>
+<td style="text-align: left;"><code>&lt;S-&gt;</code></td>
+<td style="text-align: left;"><code>Shift</code></td>
+<td style="text-align: left;">Shift 键</td>
 </tr>
 <tr>
-<td align="left"><code>&lt;D-&gt;</code></td>
-<td align="left"><code>Command</code></td>
-<td align="left">Mac 上的 Command 键</td>
+<td style="text-align: left;"><code>&lt;D-&gt;</code></td>
+<td style="text-align: left;"><code>Command</code></td>
+<td style="text-align: left;">Mac 上的 Command 键</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><strong>示例：</strong></p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim.keymap.set(<span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;&lt;C-s&gt;&#x27;</span>, <span class="string">&#x27;&lt;cmd&gt;w&lt;cr&gt;&#x27;</span>)      <span class="comment">-- Ctrl + s 保存</span></span><br><span class="line">vim.keymap.set(<span class="string">&#x27;i&#x27;</span>, <span class="string">&#x27;&lt;C-a&gt;&#x27;</span>, <span class="string">&#x27;&lt;Home&gt;&#x27;</span>)          <span class="comment">-- Ctrl + a 跳到行首</span></span><br><span class="line">vim.keymap.set(<span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;&lt;A-j&gt;&#x27;</span>, <span class="string">&#x27;&lt;cmd&gt;m .+1&lt;cr&gt;&#x27;</span>)  <span class="comment">-- Alt + j 下移行</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-功能键-Function-Keys"><a href="#2-功能键-Function-Keys" class="headerlink" title="2. 功能键 (Function Keys)"></a>2. 功能键 (Function Keys)</h3><table>
+<h3 id="功能键-function-keys">2. 功能键 (Function Keys)</h3>
+<table>
 <thead>
 <tr>
-<th align="left">表示法</th>
-<th align="left">实际按键</th>
+<th style="text-align: left;">表示法</th>
+<th style="text-align: left;">实际按键</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><code>&lt;F1&gt;</code> - <code>&lt;F12&gt;</code></td>
-<td align="left">功能键 F1 到 F12</td>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>&lt;F1&gt;</code> -
+<code>&lt;F12&gt;</code></td>
+<td style="text-align: left;">功能键 F1 到 F12</td>
 </tr>
 <tr>
-<td align="left"><code>&lt;Up&gt;</code>, <code>&lt;Down&gt;</code></td>
-<td align="left">方向键</td>
+<td style="text-align: left;"><code>&lt;Up&gt;</code>,
+<code>&lt;Down&gt;</code></td>
+<td style="text-align: left;">方向键</td>
 </tr>
 <tr>
-<td align="left"><code>&lt;Left&gt;</code>, <code>&lt;Right&gt;</code></td>
-<td align="left">方向键</td>
+<td style="text-align: left;"><code>&lt;Left&gt;</code>,
+<code>&lt;Right&gt;</code></td>
+<td style="text-align: left;">方向键</td>
 </tr>
 <tr>
-<td align="left"><code>&lt;PageUp&gt;</code>, <code>&lt;PageDown&gt;</code></td>
-<td align="left">翻页键</td>
+<td style="text-align: left;"><code>&lt;PageUp&gt;</code>,
+<code>&lt;PageDown&gt;</code></td>
+<td style="text-align: left;">翻页键</td>
 </tr>
 <tr>
-<td align="left"><code>&lt;Home&gt;</code>, <code>&lt;End&gt;</code></td>
-<td align="left">行首&#x2F;行尾</td>
+<td style="text-align: left;"><code>&lt;Home&gt;</code>,
+<code>&lt;End&gt;</code></td>
+<td style="text-align: left;">行首/行尾</td>
 </tr>
 <tr>
-<td align="left"><code>&lt;Insert&gt;</code>, <code>&lt;Delete&gt;</code></td>
-<td align="left">插入&#x2F;删除</td>
+<td style="text-align: left;"><code>&lt;Insert&gt;</code>,
+<code>&lt;Delete&gt;</code></td>
+<td style="text-align: left;">插入/删除</td>
 </tr>
-</tbody></table>
-<h3 id="3-特殊字符键"><a href="#3-特殊字符键" class="headerlink" title="3. 特殊字符键"></a>3. 特殊字符键</h3><table>
+</tbody>
+</table>
+<h3 id="特殊字符键">3. 特殊字符键</h3>
+<table>
 <thead>
 <tr>
-<th align="left">表示法</th>
-<th align="left">实际按键</th>
+<th style="text-align: left;">表示法</th>
+<th style="text-align: left;">实际按键</th>
 <th></th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><code>&lt;CR&gt;</code></td>
-<td align="left"><code>Enter</code>&#x2F;<code>Return</code> 键</td>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>&lt;CR&gt;</code></td>
+<td style="text-align: left;"><code>Enter</code>/<code>Return</code>
+键</td>
 <td></td>
 </tr>
 <tr>
-<td align="left"><code>&lt;Esc&gt;</code></td>
-<td align="left"><code>Escape</code> 键</td>
+<td style="text-align: left;"><code>&lt;Esc&gt;</code></td>
+<td style="text-align: left;"><code>Escape</code> 键</td>
 <td></td>
 </tr>
 <tr>
-<td align="left"><code>&lt;Tab&gt;</code></td>
-<td align="left"><code>Tab</code> 键</td>
+<td style="text-align: left;"><code>&lt;Tab&gt;</code></td>
+<td style="text-align: left;"><code>Tab</code> 键</td>
 <td></td>
 </tr>
 <tr>
-<td align="left"><code>&lt;BS&gt;</code></td>
-<td align="left"><code>Backspace</code> 键</td>
+<td style="text-align: left;"><code>&lt;BS&gt;</code></td>
+<td style="text-align: left;"><code>Backspace</code> 键</td>
 <td></td>
 </tr>
 <tr>
-<td align="left"><code>&lt;Space&gt;</code></td>
-<td align="left"><code>空格</code> 键</td>
+<td style="text-align: left;"><code>&lt;Space&gt;</code></td>
+<td style="text-align: left;"><code>空格</code> 键</td>
 <td></td>
 </tr>
 <tr>
-<td align="left"><code>&lt;Bar&gt;</code></td>
-<td align="left">&#96;</td>
-<td>&#96; 竖线符</td>
+<td style="text-align: left;"><code>&lt;Bar&gt;</code></td>
+<td style="text-align: left;"><code>|</code> 竖线符</td>
+<td></td>
 </tr>
-</tbody></table>
-<h3 id="4-组合键表示"><a href="#4-组合键表示" class="headerlink" title="4. 组合键表示"></a>4. 组合键表示</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 多键组合</span></span><br><span class="line">vim.keymap.set(<span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;&lt;C-w&gt;h&#x27;</span>, <span class="string">&#x27;&lt;C-w&gt;h&#x27;</span>)    <span class="comment">-- Ctrl + w 然后 h</span></span><br><span class="line">vim.keymap.set(<span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;gcc&#x27;</span>, <span class="string">&#x27;gc&#x27;</span>)           <span class="comment">-- 按 g 然后 c 然后 c</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 同时按下</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="5-特殊标识"><a href="#5-特殊标识" class="headerlink" title="5.特殊标识"></a>5.特殊标识</h3><blockquote>
+</tbody>
+</table>
+<h3 id="组合键表示">4. 组合键表示</h3>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 多键组合</span></span><br><span class="line">vim.keymap.set(<span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;&lt;C-w&gt;h&#x27;</span>, <span class="string">&#x27;&lt;C-w&gt;h&#x27;</span>)    <span class="comment">-- Ctrl + w 然后 h</span></span><br><span class="line">vim.keymap.set(<span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;gcc&#x27;</span>, <span class="string">&#x27;gc&#x27;</span>)           <span class="comment">-- 按 g 然后 c 然后 c</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 同时按下</span></span><br></pre></td></tr></table></figure>
+<h3 id="特殊标识">5.特殊标识</h3>
+<blockquote>
 <p><cmd>为纯粹的命令模式，类似于:但不受模式约束</p>
 </blockquote>
-<h1 id="其他配置（暂无，并不常用）"><a href="#其他配置（暂无，并不常用）" class="headerlink" title="其他配置（暂无，并不常用）"></a>其他配置（暂无，并不常用）</h1></div>
+<h1 id="其他配置暂无并不常用">其他配置（暂无，并不常用）</h1>
+</div>
     </div>
 
     <div class="post-meta">

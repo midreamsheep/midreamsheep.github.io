@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <meta name="description" content="neovim配置智能补全" />
+    <meta name="hexo-theme-A4" content="v2.0.0" />
+    <link rel="alternate icon" type="image/webp" href="/img/head.jpg">
+    <title>midreamsheep | 一个不断进步的小菜</title>
+
+    
+        
+<link rel="stylesheet" href="/css/highlight/style1.css">
+
+        
+<link rel="stylesheet" href="/css/reset.css">
+
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
+
+
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
+
+            
+<link rel="stylesheet" href="/css/unicons.css">
+
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
+
+        
+    
+
+    
+        
+<link rel="stylesheet" href="/css/returnToLastPage.css">
+
+    
+    
+   
+<link rel="stylesheet" href="/css/lightgallery-bundle.min.css">
+
+
+   
+        
+<link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Regular/result.css' /> 
+<meta name="generator" content="Hexo 7.3.0"></head>
+    
+    
+
+    
+    
+
+
+
+    
+
+    
+    
+
+
+
+
+    <style>
+        .archive-main a:hover {
+            text-decoration: none; 
+        }
+    </style>
+
+    
+    
+    <style>
+        body {
+            background-image: url(/img/background.png);
+            background-attachment: fixed;  /* 背景固定，不随页面滚动 */
+            background-repeat: no-repeat;  /* 防止背景图片重复 */
+            background-size: cover;       /* 背景自适应大小，覆盖整个背景 */
+            background-position: center;   /* 背景居中显示 */
+        }
+        .paper {
+            background-image: url(/img/background.png);
+            background-attachment: fixed;  /* 背景固定，不随页面滚动 */
+            background-repeat: no-repeat;  /* 防止背景图片重复 */
+            background-size: cover;       /* 背景自适应大小，覆盖整个背景 */
+            background-position: center;   /* 背景居中显示 */
+        }  
+    </style>
+
+
+
+    <body>
+        <script src="/js/darkmode-js.min.js"></script>
+        
+        <script>
+            const options = {
+                bottom: '40px', // default: '32px'
+                right: 'unset', // default: '32px'
+                left: '42px', // default: 'unset'
+                time: '0.3s', // default: '0.3s'
+                mixColor: '#fff', // default: '#fff'
+                backgroundColor: ' #e4e4e4 ',  // default: '#fff'
+                buttonColorDark: '#100f2c',  // default: '#100f2c'
+                buttonColorLight: '#fff', // default: '#fff'
+                saveInCookies: true, // default: true,
+                label: '🌓', // default: ''
+                autoMatchOsTheme: true // default: true
+            }
+            const darkmode = new Darkmode(options);
+            darkmode.showWidget();
+        </script>
+        
+        
+            
+                <div class="left-toc-container">
+                    <nav id="toc" class="bs-docs-sidebar"></nav>
+                </div>
+            
+        
+        <div class="paper">
+
+            
+
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+
+
+<div class="header">
+    <div class="header-container">
+        <style>
+            .header-img {
+                width: 56px;
+                height: auto;
+                object-fit: cover; /* 保持图片比例 */
+                transition: transform 0.3s ease-in-out; 
+                border-radius: 50%; 
+            }
+            
+        </style>
+        <img 
+            alt="^-^" 
+            cache-control="max-age=86400" 
+            class="header-img" 
+            src="/img/head.jpg" 
+        />
+        <div class="header-content">
+            <a class="logo" href="/">midreamsheep</a> 
+            <span class="description">一个小菜</span> 
+        </div>
+    </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+            
+                <li><a href="/about/">关于</a></li>
+            
+        
+            
+                <li><a href="/tags/">标签</a></li>
+            
+        
+            
+                <li><a href="/categories/">分类</a></li>
+            
+        
+    </ul>
+</div>
+
+                    
+                    
+
+                    
+                    
+
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+    
+
+    
+        
+            
+                <div class="post-main-title" style="text-align: center;">
+                    neovim配置智能补全
+                </div>
+            
+        
+      
+    
+
+    
+
+        
+            <div class="post-head-meta-center">
+        
+                
+                    <span>最近更新：2025-09-18</span> 
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                     <span>字数总计：1.1k</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span>阅读估时：5分钟</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span id="busuanzi_container_page_pv">
+                        阅读量：<span id="busuanzi_value_page_pv"></span>次
+                    </span>
+                
+            </div>
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#lsp%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%8B%E7%BB%8D"><span class="post-toc-text">lsp服务器介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#mason%E9%85%8D%E7%BD%AE"><span class="post-toc-text">Mason配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#mson-lspconfig%E9%85%8D%E7%BD%AE"><span class="post-toc-text">mson-lspconfig配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#nvim-lspconfig%E9%85%8D%E7%BD%AE"><span class="post-toc-text">nvim-lspconfig配置</span></a></li></ol>
+            
+        
+        <div class=".article-gallery"><h1 id="lsp服务器介绍">lsp服务器介绍</h1>
+<p><strong>语言服务器协议（Language Server Protocol，简称LSP）</strong>
+是一种由微软于2016年提出的开源协议，用于在编辑器或集成开发环境（IDE）与语言服务器之间进行通信。LSP定义了一套标准化的协议，使得编辑器和IDE可以与语言服务器交互，从而提供诸如自动补全、跳转到定义、查找所有引用等语言特性。</p>
+<p>nvim的智能提示、代码定位等现代IDE功能就能基于lsp服务器实现</p>
+<h1 id="mason配置">Mason配置</h1>
+<p>Mason是nvim管理lsp服务器的插件工具</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Mason - LSP/DAP/Linter/Formatter 管理器</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;williamboman/mason.nvim&quot;</span>,</span><br><span class="line">	opts = &#123;</span><br><span class="line">  		<span class="comment">-- 确保安装你需要的工具</span></span><br><span class="line">  		ensure_installed = &#123;</span><br><span class="line">    	<span class="comment">-- LSP Servers</span></span><br><span class="line">    	<span class="string">&quot;lua_ls&quot;</span>,       <span class="comment">-- Lua</span></span><br><span class="line">    	<span class="string">&quot;pyright&quot;</span>,      <span class="comment">-- Python</span></span><br><span class="line">    	<span class="string">&quot;rust_analyzer&quot;</span>,<span class="comment">-- Rust</span></span><br><span class="line">    	<span class="string">&quot;tsserver&quot;</span>,     <span class="comment">-- TypeScript/JavaScript</span></span><br><span class="line">    	<span class="string">&quot;gopls&quot;</span>,        <span class="comment">-- Go</span></span><br><span class="line">    	<span class="string">&quot;clangd&quot;</span>,       <span class="comment">-- C/C++</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>检查Mason是否安装成功<code>:Mason</code></p>
+<p>如何安装对应的服务器：</p>
+<ul>
+<li>光标移动到对应lsp服务器位置</li>
+<li>点击<code>i</code>启动下载进程</li>
+</ul>
+<h1 id="mson-lspconfig配置">mson-lspconfig配置</h1>
+<p>该插件是mason与lspconfig相互通信的工具</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- mason-lspconfig - 连接 mason 和 lspconfig</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;williamboman/mason-lspconfig.nvim&quot;</span>,</span><br><span class="line">    dependencies = &#123; <span class="string">&quot;williamboman/mason.nvim&quot;</span> &#125;,</span><br><span class="line">    opts = &#123;</span><br><span class="line">      <span class="comment">-- 确保 mason 安装的 LSP 服务器自动在这里设置</span></span><br><span class="line">      automatic_installation = <span class="literal">true</span>, <span class="comment">-- 自动安装 mason 列表中的 LSP</span></span><br><span class="line">      handlers = &#123;</span><br><span class="line">        <span class="comment">-- 默认处理器，为所有服务器应用基本设置</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span><span class="params">(server_name)</span></span></span><br><span class="line">          <span class="built_in">require</span>(<span class="string">&quot;lspconfig&quot;</span>)[server_name].setup(&#123;&#125;)</span><br><span class="line">        <span class="keyword">end</span>,</span><br><span class="line">        <span class="comment">-- 为特定服务器提供自定义配置</span></span><br><span class="line">        [<span class="string">&quot;lua_ls&quot;</span>] = <span class="function"><span class="keyword">function</span><span class="params">()</span></span></span><br><span class="line">          <span class="built_in">require</span>(<span class="string">&quot;lspconfig&quot;</span>).lua_ls.setup(&#123;</span><br><span class="line">            settings = &#123;</span><br><span class="line">              Lua = &#123;</span><br><span class="line">                runtime = &#123; version = <span class="string">&quot;LuaJIT&quot;</span> &#125;,</span><br><span class="line">                diagnostics = &#123; globals = &#123; <span class="string">&quot;vim&quot;</span> &#125; &#125;,</span><br><span class="line">                workspace = &#123;</span><br><span class="line">                  library = vim.api.nvim_get_runtime_file(<span class="string">&quot;&quot;</span>, <span class="literal">true</span>),</span><br><span class="line">                  checkThirdParty = <span class="literal">false</span>,</span><br><span class="line">                &#125;,</span><br><span class="line">                telemetry = &#123; enable = <span class="literal">false</span> &#125;,</span><br><span class="line">              &#125;,</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;)</span><br><span class="line">        <span class="keyword">end</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="nvim-lspconfig配置">nvim-lspconfig配置</h1>
+<p>nvim的lsp插件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">-- nvim-lspconfig - 核心 LSP 配置</span><br><span class="line">&#123;</span><br><span class="line">  &quot;neovim/nvim-lspconfig&quot;,</span><br><span class="line">  event = &#123; &quot;BufReadPre&quot;, &quot;BufNewFile&quot; &#125;,</span><br><span class="line">  dependencies = &#123;</span><br><span class="line">    &quot;mason.nvim&quot;,</span><br><span class="line">    &quot;mason-lspconfig.nvim&quot;,</span><br><span class="line">    &quot;hrsh7th/cmp-nvim-lsp&quot;, -- 为 nvim-cmp 提供补全能力</span><br><span class="line">  &#125;,</span><br><span class="line">  config = function()</span><br><span class="line">    -- 全局 LSP 按键映射</span><br><span class="line">    local on_attach = function(client, bufnr)</span><br><span class="line">      -- 启用 LSP 提供的格式化能力（如果支持）</span><br><span class="line">      client.server_capabilities.documentFormattingProvider = true</span><br><span class="line"></span><br><span class="line">      -- 本地按键映射</span><br><span class="line">      local nmap = function(keys, func, desc)</span><br><span class="line">        if desc then</span><br><span class="line">          desc = &quot;LSP: &quot; .. desc</span><br><span class="line">        end</span><br><span class="line">        vim.keymap.set(&quot;n&quot;, keys, func, &#123; buffer = bufnr, desc = desc &#125;)</span><br><span class="line">      end</span><br><span class="line"></span><br><span class="line">      nmap(&quot;gd&quot;, vim.lsp.buf.definition, &quot;[G]oto [D]efinition&quot;)</span><br><span class="line">      nmap(&quot;gD&quot;, vim.lsp.buf.declaration, &quot;[G]oto [D]eclaration&quot;)</span><br><span class="line">      nmap(&quot;gr&quot;, require(&quot;telescope.builtin&quot;).lsp_references, &quot;[G]oto [R]eferences&quot;)</span><br><span class="line">      nmap(&quot;gI&quot;, vim.lsp.buf.implementation, &quot;[G]oto [I]mplementation&quot;)</span><br><span class="line">      nmap(&quot;&lt;leader&gt;D&quot;, vim.lsp.buf.type_definition, &quot;Type [D]efinition&quot;)</span><br><span class="line">      nmap(&quot;&lt;leader&gt;ds&quot;, require(&quot;telescope.builtin&quot;).lsp_document_symbols, &quot;[D]ocument [S]ymbols&quot;)</span><br><span class="line">      nmap(&quot;&lt;leader&gt;ws&quot;, require(&quot;telescope.builtin&quot;).lsp_dynamic_workspace_symbols, &quot;[W]orkspace [S]ymbols&quot;)</span><br><span class="line">      nmap(&quot;K&quot;, vim.lsp.buf.hover, &quot;Hover Documentation&quot;)</span><br><span class="line">      nmap(&quot;&lt;C-k&gt;&quot;, vim.lsp.buf.signature_help, &quot;Signature Documentation&quot;)</span><br><span class="line"></span><br><span class="line">      -- 工作区操作</span><br><span class="line">      nmap(&quot;&lt;leader&gt;wa&quot;, vim.lsp.buf.add_workspace_folder, &quot;[W]orkspace [A]dd Folder&quot;)</span><br><span class="line">      nmap(&quot;&lt;leader&gt;wr&quot;, vim.lsp.buf.remove_workspace_folder, &quot;[W]orkspace [R]emove Folder&quot;)</span><br><span class="line">      nmap(&quot;&lt;leader&gt;wl&quot;, function()</span><br><span class="line">        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))</span><br><span class="line">      end, &quot;[W]orkspace [L]ist Folders&quot;)</span><br><span class="line"></span><br><span class="line">      -- 代码操作</span><br><span class="line">      nmap(&quot;&lt;leader&gt;rn&quot;, vim.lsp.buf.rename, &quot;[R]e[N]ame&quot;)</span><br><span class="line">      nmap(&quot;&lt;leader&gt;ca&quot;, vim.lsp.buf.code_action, &quot;[C]ode [A]ction&quot;)</span><br><span class="line">      nmap(&quot;&lt;leader&gt;f&quot;, function()</span><br><span class="line">        vim.lsp.buf.format(&#123; async = true &#125;)</span><br><span class="line">      end, &quot;[F]ormat code&quot;)</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    -- 为所有 LSP 服务器设置默认配置</span><br><span class="line">    local capabilities = require(&quot;cmp_nvim_lsp&quot;).default_capabilities()</span><br><span class="line"></span><br><span class="line">    -- 可选：启用更好的 LSP 状态显示</span><br><span class="line">    require(&quot;lspconfig&quot;).util.default_config = vim.tbl_extend(&quot;force&quot;, require(&quot;lspconfig&quot;).util.default_config, &#123;</span><br><span class="line">      on_attach = on_attach,</span><br><span class="line">      capabilities = capabilities,</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    -- 在这里可以手动设置其他服务器的配置（如果 mason-lspconfig 的 handlers 不够用）</span><br><span class="line">    -- require(&quot;lspconfig&quot;).pyright.setup(&#123;&#125;)</span><br><span class="line">    -- require(&quot;lspconfig&quot;).rust_analyzer.setup(&#123;&#125;)</span><br><span class="line"></span><br><span class="line">    -- LSP 状态指示器</span><br><span class="line">    local signs = &#123; Error = &quot; &quot;, Warn = &quot; &quot;, Hint = &quot;󰌵 &quot;, Info = &quot; &quot; &#125;</span><br><span class="line">    for type, icon in pairs(signs) do</span><br><span class="line">      local hl = &quot;DiagnosticSign&quot; .. type</span><br><span class="line">      vim.fn.sign_define(hl, &#123; text = icon, texthl = hl, numhl = hl &#125;)</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    -- 诊断配置</span><br><span class="line">    vim.diagnostic.config(&#123;</span><br><span class="line">      virtual_text = &#123;</span><br><span class="line">        prefix = &quot;●&quot;,</span><br><span class="line">        spacing = 4,</span><br><span class="line">      &#125;,</span><br><span class="line">      signs = true,</span><br><span class="line">      underline = true,</span><br><span class="line">      update_in_insert = false,</span><br><span class="line">      severity_sort = true,</span><br><span class="line">      float = &#123;</span><br><span class="line">        border = &quot;rounded&quot;,</span><br><span class="line">        source = &quot;always&quot;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    -- 悬停边框样式</span><br><span class="line">    vim.lsp.handlers[&quot;textDocument/hover&quot;] = vim.lsp.with(vim.lsp.handlers.hover, &#123;</span><br><span class="line">      border = &quot;rounded&quot;,</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    -- 签名帮助边框样式</span><br><span class="line">    vim.lsp.handlers[&quot;textDocument/signatureHelp&quot;] = vim.lsp.with(vim.lsp.handlers.signature_help, &#123;</span><br><span class="line">      border = &quot;rounded&quot;,</span><br><span class="line">    &#125;)</span><br><span class="line">  end,</span><br><span class="line">&#125;,</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</div>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2025-09-18</span>
+            
+                <span>该篇文章被 midreamsheep</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/nvim/'>
+                            nvim
+                        </a>
+                    
+                        <a href='/tags/%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/'>
+                            配置指南
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/'>
+                            开发工具
+                        </a>
+                    
+                </span>
+            
+        
+        </i>
+    </div>
+    <br>
+    
+    
+        
+            
+    
+            <div class="post-footer-pre-next">
+                
+                    <span>上一篇：<a href='/2025/09/25/study/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E5%A4%A7%E4%B8%80%E4%B8%8A/%E7%AC%94%E8%AE%B0-%E5%AE%9E%E6%95%B0/'>数学分析笔记-实数定义</a></span>
+                
+
+                
+                    <span class="post-footer-pre-next-last-span-right">下一篇：<a href="/2025/09/18/program/nvim/nvim%E6%8F%92%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/">neovim插件包管理器lazy.nvim</a>
+                    </span>
+                
+            </div>
+    
+        
+    
+
+    
+        
+
+     
+</div>
+
+
+
+
+                    
+
+                    <div class="footer">
+    
+        <span> 
+            © 1949-2025 China 
+
+            
+                
+
+            
+        </span>
+       
+    
+</div>
+
+
+
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>🌊看过大海的人不会忘记海的广阔🌊</span>
+            
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
+            
+    
+</div>
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
+    
+
+    
+<script src="/js/randomHeaderContent.js"></script>
+
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
+
+    
+
+    
+        
+<script src="/js/returnToLastPage.js"></script>
+
+    
+
+
+
+
+
+<script src="/js/lightgallery/lightgallery.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-thumbnail.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-fullscreen.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-autoplay.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-zoom.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-rotate.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-paper.umd.min.js"></script>
+
+
+
+
+<script type="text/javascript">
+     
+    if (typeof lightGallery !== "undefined") {
+        var options1 = {
+            selector: '.gallery-item',
+            plugins: [lgThumbnail, lgFullscreen, lgAutoplay, lgZoom, lgRotate, lgPager], // 启用插件
+            thumbnail: true,          // 显示缩略图
+            zoom: true,               // 启用缩放功
+            rotate: true,             // 启用旋转功能能
+            autoplay: true,        // 启用自动播放功能
+            fullScreen: true,      // 启用全屏功能
+            pager: false, //页码,
+            zoomFromOrigin: true,   // 从原始位置缩放
+            actualSize: true,       // 启用查看实际大小的功能
+            enableZoomAfter: 300,    // 延迟缩放，确保图片加载完成后可缩放
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1); // 修复选择器
+    }
+    
+</script>
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
+
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+            
+                <!-- 返回的按钮-->
+                <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+    </body>
+</html>
+<script src="/js/emojiHandler.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        wrapEmojis('.paper');
+    });
+</script>
