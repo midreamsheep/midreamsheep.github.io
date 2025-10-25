@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <meta name="description" content="" />
+    <meta name="description" content="线代笔记-向量空间" />
     <meta name="hexo-theme-A4" content="v2.0.0" />
     <link rel="alternate icon" type="image/webp" href="/img/head.jpg">
     <title>midreamsheep | 一个不断进步的小菜</title>
@@ -244,89 +244,235 @@ mjx-container[display="true"] + br {
         
         
             
+                <div class="left-toc-container">
+                    <nav id="toc" class="bs-docs-sidebar"></nav>
+                </div>
+            
         
         <div class="paper">
 
             
 
             
-                <div class="shadow-drop-2-bottom index-main">
-                    <!-- 这个header就是特指index的头部 -->
+                <div class="shadow-drop-2-bottom paper-main">
+                    
 
 
-
-    <div style="text-align: center;"> 
-
-        <a class="index-logo" href="/">midreamsheep</a>
-        <div style="margin-bottom: 12px;"> 
+<div class="header">
+    <div class="header-container">
+        <style>
+            .header-img {
+                width: 56px;
+                height: auto;
+                object-fit: cover; /* 保持图片比例 */
+                transition: transform 0.3s ease-in-out; 
+                border-radius: 50%; 
+            }
             
-                
-                    首页
-                
-            
-                
-                    &nbsp / &nbsp<a href="/list/">文章</a>
-                
-            
-                
-                    &nbsp / &nbsp<a href="/about/">关于</a>
-                
-            
-                
-                    &nbsp / &nbsp<a href="/tags/">标签</a>
-                
-            
-                
-                    &nbsp / &nbsp<a href="/categories/">分类</a>
-                
-            
+        </style>
+        <img 
+            alt="^-^" 
+            cache-control="max-age=86400" 
+            class="header-img" 
+            src="/img/head.jpg" 
+        />
+        <div class="header-content">
+            <a class="logo" href="/">midreamsheep</a> 
+            <span class="description">一个小菜</span> 
         </div>
     </div>
-
-                    <div class="post-main">
     
-    
-       
-       
-       
-       
-            <div class="post-md">
-                <div class=".article-gallery"><p>这是一个什么都没有的首页</p>
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+            
+                <li><a href="/about/">关于</a></li>
+            
+        
+            
+                <li><a href="/tags/">标签</a></li>
+            
+        
+            
+                <li><a href="/categories/">分类</a></li>
+            
+        
+    </ul>
 </div>
+
+                    
+                    
+
+                    
+                    
+
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+    
+
+    
+        
+            
+                <div class="post-main-title" style="text-align: center;">
+                    线代笔记-向量空间
+                </div>
+            
+        
+      
+    
+
+    
+
+        
+            <div class="post-head-meta-center">
+        
+                
+                    <span>最近更新：2025-10-19</span> 
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                     <span>字数总计：184</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span>阅读估时：1分钟</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span id="busuanzi_container_page_pv">
+                        阅读量：<span id="busuanzi_value_page_pv"></span>次
+                    </span>
+                
             </div>
     
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AD%90%E7%A9%BA%E9%97%B4"><span class="post-toc-text">子空间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%97%E7%A9%BA%E9%97%B4%E4%B8%8E%E9%9B%B6%E7%A9%BA%E9%97%B4"><span class="post-toc-text">列空间与零空间</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AD%90%E7%A9%BA%E9%97%B4%E7%9A%84%E5%9F%BA"><span class="post-toc-text">子空间的基</span></a></li></ol></li></ol>
+            
+        
+        <div class=".article-gallery"><h1 id="子空间">子空间</h1>
+<p><span class="math inline"><em>R</em><sup><em>n</em></sup><em>的</em><em>一</em><em>个</em><em>子</em><em>空</em><em>间</em><em>是</em><em>R</em><sup><em>n</em></sup><em>中</em><em>的</em><em>集</em><em>合</em><em>H</em>，<em>具</em><em>有</em><em>以</em><em>下</em><em>三</em><em>大</em><em>性</em><em>质</em>：</span></p>
+<p><span class="math inline"><em>a</em>.<em>零</em><em>向</em><em>量</em><em>属</em><em>于</em><em>H</em>（<em>可</em><em>由</em><em>b</em><em>与</em><em>c</em><em>推</em><em>出</em>）</span></p>
+<p><span class="math inline"><em>b</em>.<em>对</em><em>H</em><em>中</em><em>任</em><em>意</em><em>的</em><em>向</em><em>量</em><em>u</em><em>和</em><em>v</em>，<em>向</em><em>量</em><em>u</em> + <em>v</em><em>属</em><em>于</em><em>H</em></span></p>
+<p><span class="math inline"><em>c</em>.<em>对</em><em>H</em><em>中</em><em>任</em><em>意</em><em>向</em><em>量</em><em>u</em><em>和</em><em>数</em><em>c</em>，<em>向</em><em>量</em><em>c</em><em>u</em><em>属</em><em>于</em><em>H</em></span></p>
+<blockquote>
+<p>即对加法和数乘封闭</p>
+</blockquote>
+<h2 id="列空间与零空间">列空间与零空间</h2>
+<p><span class="math inline"><em>令</em><em>A</em><em>为</em><em>m</em> × <em>n</em><em>矩</em><em>阵</em></span></p>
+<p><span class="math inline"><em>列</em><em>空</em><em>间</em>：<em>A</em><em>的</em><em>各</em><em>列</em><em>的</em><em>线</em><em>性</em><em>组</em><em>合</em><em>的</em><em>集</em><em>合</em><em>称</em><em>为</em><em>列</em><em>空</em><em>间</em>，<em>记</em><em>为</em><em>C</em><em>o</em><em>l</em><em>A</em>，<em>为</em><em>R</em><sup><em>m</em></sup><em>的</em><em>子</em><em>空</em><em>间</em></span></p>
+<p><span class="math inline"><em>零</em><em>空</em><em>间</em>：<em>A</em><em>x</em> = 0<em>的</em><em>所</em><em>有</em><em>解</em><em>的</em><em>集</em><em>合</em><em>称</em><em>为</em><em>零</em><em>空</em><em>间</em>，<em>记</em><em>为</em><em>N</em><em>u</em><em>l</em><em>A</em>，<em>为</em><em>R</em><sup><em>n</em></sup><em>的</em><em>子</em><em>空</em><em>间</em></span></p>
+<h2 id="子空间的基">子空间的基</h2>
+<p><span class="math inline"><em>R</em><sup><em>n</em></sup><em>中</em><em>子</em><em>空</em><em>间</em><em>H</em><em>的</em><em>一</em><em>组</em><em>基</em><em>是</em><em>H</em><em>中</em><em>的</em><em>一</em><em>组</em><em>生</em><em>成</em><em>H</em><em>的</em><em>线</em><em>性</em><em>无</em><em>关</em><em>集</em></span></p>
+<p><span class="math inline"><em>I</em><sub><em>n</em></sub><em>的</em><em>各</em><em>列</em>{<em>e</em><sub>1</sub>, ..., <em>e</em><sub><em>n</em></sub>}<em>称</em><em>为</em><em>R</em><sup><em>n</em></sup><em>的</em><em>标</em><em>准</em><em>基</em></span></p>
 </div>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2025-10-19</span>
+            
+                <span>该篇文章被 midreamsheep</span>
+            
+            
+                <span>打上标签:
                     
+                    
+                        <a href='/tags/%E7%AC%94%E8%AE%B0/'>
+                            笔记
+                        </a>
+                    
+                        <a href='/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%8E%E5%87%A0%E4%BD%95/'>
+                            线性代数与几何
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0/'>
+                            数学笔记
+                        </a>
+                    
+                </span>
+            
+        
+        </i>
+    </div>
+    <br>
+    
+    
+        
+            
+    
+            <div class="post-footer-pre-next">
+                
+                    <span>上一篇：<a href='/2025/10/21/study/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E5%A4%A7%E4%B8%80%E4%B8%8A/%E7%AC%94%E8%AE%B0-%E5%88%9D%E7%AD%89%E5%87%BD%E6%95%B0/'>数学分析笔记-初等函数</a></span>
+                
+
+                
+                    <span class="post-footer-pre-next-last-span-right">下一篇：<a href="/2025/10/19/study/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E5%A4%A7%E4%B8%80%E4%B8%8A/%E4%BE%8B%E9%A2%98-%E5%87%BD%E6%95%B0%E9%97%B4%E6%96%AD%E4%B8%8E%E8%BF%9E%E7%BB%AD/">数学分析例题-函数间断与连续</a>
+                    </span>
+                
+            </div>
+    
+        
+    
+
+    
+        
+
+     
+</div>
+
+
+
+
+                    
+
                     <div class="footer">
     
+        <span> 
+            © 1949-2025 China 
+
+            
+                
+
+            
+        </span>
+       
+    
 </div>
 
-
-    <div class="footer-last-without-line">
-        
-        <span>本站总字数：16.3k</span>
-        
-        
-            <div class="footer-last-span-right">
-        
-        
-                <span id="busuanzi_container_site_pv" class="">
-                    本站总访问：<span id="busuanzi_value_site_pv"></span>次
-                </span>
-            </div>
-        
-    </div>
 
 
 <!--这是指一条线往下的内容-->
 <div class="footer-last">
     
-         
+            <span>🌊看过大海的人不会忘记海的广阔🌊</span>
             
-                
-                <span class="index-footer-last-span">Email:<a href="mailto:midreamsheep@gmail.com" title="midreamsheep@gmail.com">midreamsheep@gmail.com</a></span>
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
             
-        
     
 </div>
 
