@@ -65,20 +65,6 @@
 
   
   <url>
-    <loc>https://midreamsheep.top/tags/linux/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://midreamsheep.top/tags/study/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://midreamsheep.top/tags/ai/</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -94,6 +80,20 @@
   
   <url>
     <loc>https://midreamsheep.top/tags/tool/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://midreamsheep.top/tags/linux/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://midreamsheep.top/tags/study/</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -116,13 +116,6 @@
 
   
   <url>
-    <loc>https://midreamsheep.top/categories/linux/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://midreamsheep.top/categories/agent/</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -130,7 +123,7 @@
   </url>
   
   <url>
-    <loc>https://midreamsheep.top/categories/linux/software/</loc>
+    <loc>https://midreamsheep.top/categories/linux/</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -138,6 +131,13 @@
   
   <url>
     <loc>https://midreamsheep.top/categories/agent/application/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://midreamsheep.top/categories/linux/software/</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
