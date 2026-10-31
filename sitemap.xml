@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://midreamsheep.top/2026/10/27/linux/study/%E7%96%AF%E7%8B%82linux-%E4%BB%8E-%E5%BC%80%E5%A7%8B%E7%9A%84linux%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/</loc>
+    <loc>https://midreamsheep.top/2026/10/27/linux/software/linux-software-niri-config/</loc>
+    
+    <lastmod>2026-10-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://midreamsheep.top/2026/10/27/linux/study/linux-study-file-structure/</loc>
     
     <lastmod>2026-10-27</lastmod>
     
@@ -11,16 +20,7 @@
   </url>
   
   <url>
-    <loc>https://midreamsheep.top/2026/10/27/linux/software/%E7%96%AF%E7%8B%82linux-niri%E6%A1%8C%E9%9D%A2%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</loc>
-    
-    <lastmod>2026-10-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://midreamsheep.top/2026/10/26/agent/application/%E7%94%A8Agent%E4%B8%8A%E8%AF%BE%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%95%B4%E7%90%86%E7%AC%94%E8%AE%B0%EF%BC%9A%E4%B8%80%E5%A5%97%E4%BD%8E%E6%88%90%E6%9C%AC%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%E6%B5%81%E6%B0%B4%E7%BA%BF/</loc>
+    <loc>https://midreamsheep.top/2026/10/26/agent/application/agent-application-note-workstream/</loc>
     
     <lastmod>2026-10-27</lastmod>
     
@@ -58,7 +58,7 @@
 
   <url>
     <loc>https://midreamsheep.top/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -66,49 +66,49 @@
   
   <url>
     <loc>https://midreamsheep.top/tags/ai/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://midreamsheep.top/tags/agent/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://midreamsheep.top/tags/tool/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://midreamsheep.top/tags/linux/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://midreamsheep.top/tags/study/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://midreamsheep.top/tags/software/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://midreamsheep.top/tags/desktop/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -117,28 +117,28 @@
   
   <url>
     <loc>https://midreamsheep.top/categories/agent/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://midreamsheep.top/categories/linux/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://midreamsheep.top/categories/agent/application/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://midreamsheep.top/categories/linux/software/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
